@@ -1,54 +1,34 @@
 import 'package:flutter/material.dart';
+import 'package:portfolioapp/components/header_mobile.dart';
 import 'package:portfolioapp/constants/constants.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: bgDark1,
+      endDrawer: const Drawer(
+        backgroundColor: bgDark1,
+      ),
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
           // Main Section
-          Container(
-            height: 60,
-            width: double.maxFinite,
-            margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [Colors.transparent, bgLight1],
-              ),
-              borderRadius: BorderRadius.circular(100),
-            ),
-            child: Row(
-              children: [
-                const Text(
-                  "Portfolio",
-                  style: TextStyle(
-                    fontSize: 22,
-                    fontWeight: boldFontWeight,
-                    color: yellowSecondary,
-                  ),
-                ),
-                const Spacer(),
-                for (int i = 0; i < navTitles.length; i++)
-                  Padding(
-                    padding: const EdgeInsets.only(right: 20),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        navTitles[i],
-                        style: const TextStyle(
-                            fontSize: 16,
-                            fontWeight: mediumFontWeight,
-                            color: kLight),
-                      ),
-                    ),
-                  ),
-              ],
-            ),
+          //const HeaderDesktop(),
+          HeaderMobile(
+            onLogoTap: () {},
+            onMenuTap: () {
+              scaffoldKey.currentState?.openEndDrawer();
+            },
           ),
           // Skills Section
           Container(

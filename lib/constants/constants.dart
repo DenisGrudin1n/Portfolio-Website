@@ -8,6 +8,13 @@ const Color yellowSecondary = Color(0xffFFC26C);
 const FontWeight mediumFontWeight = FontWeight.w500;
 const FontWeight boldFontWeight = FontWeight.bold;
 
+BoxDecoration kHeaderDecoration = BoxDecoration(
+  gradient: const LinearGradient(
+    colors: [Colors.transparent, bgLight1],
+  ),
+  borderRadius: BorderRadius.circular(100),
+);
+
 List<String> navTitles = [
   "Home",
   "Skills",
