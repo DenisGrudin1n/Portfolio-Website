@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolioapp/components/drawer_mobile.dart';
 import 'package:portfolioapp/components/header_mobile.dart';
 import 'package:portfolioapp/constants/constants.dart';
 
@@ -16,9 +17,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       key: scaffoldKey,
       backgroundColor: bgDark1,
-      endDrawer: const Drawer(
-        backgroundColor: bgDark1,
-      ),
+      endDrawer: const DrawerMobile(),
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
