@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolioapp/components/drawer_mobile.dart';
 import 'package:portfolioapp/components/header_desktop.dart';
 import 'package:portfolioapp/components/header_mobile.dart';
+import 'package:portfolioapp/components/main_desktop.dart';
 import 'package:portfolioapp/constants/constants.dart';
 
 class HomePage extends StatefulWidget {
@@ -35,6 +36,7 @@ class _HomePageState extends State<HomePage> {
                   scaffoldKey.currentState?.openEndDrawer();
                 },
               ),
+            const MainDesktop(),
             // Skills Section
             Container(
               height: 350,
