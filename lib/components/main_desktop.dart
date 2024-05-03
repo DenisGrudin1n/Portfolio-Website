@@ -22,22 +22,23 @@ class MainDesktop extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const Text(
-                "Front-End Flutter\nDeveloper",
+                "Flutter Mobile\nDeveloper",
                 style: TextStyle(
                   color: kLight,
                   fontWeight: boldFontWeight,
                   fontSize: 60,
+                  height: 1.1,
                 ),
               ),
               const SizedBox(
-                height: 15,
+                height: 25,
               ),
               const Text(
-                "Hi, I`m Denis. A passionate front-end developer from\nUzhhgorod, Ukraine.\n",
+                "Hi, I`m Denis. A passionate mobile developer\nfrom Uzhhgorod, Ukraine.\n",
                 style: TextStyle(
                   color: kLight,
                   fontWeight: mediumFontWeight,
-                  fontSize: 24,
+                  fontSize: 22,
                   height: 1.7,
                 ),
               ),
@@ -59,7 +60,7 @@ class MainDesktop extends StatelessWidget {
                         style: TextStyle(
                           color: kLight,
                           fontWeight: boldFontWeight,
-                          fontSize: 22,
+                          fontSize: 20,
                         ),
                       ),
                     ),
@@ -83,7 +84,7 @@ class MainDesktop extends StatelessWidget {
                         style: TextStyle(
                           color: kLight,
                           fontWeight: boldFontWeight,
-                          fontSize: 22,
+                          fontSize: 20,
                         ),
                       ),
                     ),
@@ -95,7 +96,7 @@ class MainDesktop extends StatelessWidget {
           CircleAvatar(
             radius: screenWidth / 7.5,
             backgroundImage: const AssetImage(
-              "assets/me2.png",
+              "assets/me.png",
             ),
           ),
         ],

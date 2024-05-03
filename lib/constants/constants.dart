@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const double kMinDesktopWidth = 600.0;
+const double kMinDesktopWidth = 800.0;
 
 const Color kLight = Colors.white;
 const Color bgLight1 = Color(0xff333646);

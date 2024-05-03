@@ -3,6 +3,7 @@ import 'package:portfolioapp/components/drawer_mobile.dart';
 import 'package:portfolioapp/components/header_desktop.dart';
 import 'package:portfolioapp/components/header_mobile.dart';
 import 'package:portfolioapp/components/main_desktop.dart';
+import 'package:portfolioapp/components/main_mobile.dart';
 import 'package:portfolioapp/constants/constants.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,8 +15,13 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    final screenWidth = screenSize.width;
+    final screenHeight = screenSize.height;
+
     return LayoutBuilder(builder: (context, constraints) {
       return Scaffold(
         key: scaffoldKey,
@@ -26,7 +32,7 @@ class _HomePageState extends State<HomePage> {
         body: ListView(
           scrollDirection: Axis.vertical,
           children: [
-            // Main Section
+            // Header
             if (constraints.maxWidth >= kMinDesktopWidth)
               const HeaderDesktop()
             else
@@ -36,7 +42,13 @@ class _HomePageState extends State<HomePage> {
                   scaffoldKey.currentState?.openEndDrawer();
                 },
               ),
-            const MainDesktop(),
+
+            // Main Section
+            if (constraints.maxWidth >= kMinDesktopWidth)
+              const MainDesktop()
+            else
+              const MainMobile(),
+
             // Skills Section
             Container(
               height: 350,
