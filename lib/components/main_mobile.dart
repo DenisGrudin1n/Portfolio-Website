@@ -19,7 +19,7 @@ class MainMobile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           CircleAvatar(
-            radius: screenWidth / 7,
+            radius: screenWidth / 6,
             backgroundImage: const AssetImage(
               "assets/me.png",
             ),
