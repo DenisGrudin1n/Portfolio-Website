@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolioapp/components/drawer_mobile.dart';
 import 'package:portfolioapp/components/header_desktop.dart';
 import 'package:portfolioapp/components/header_mobile.dart';
 import 'package:portfolioapp/components/main_desktop.dart';
 import 'package:portfolioapp/components/main_mobile.dart';
+import 'package:portfolioapp/components/skills_desktop.dart';
 import 'package:portfolioapp/constants/constants.dart';
 
 class HomePage extends StatefulWidget {
@@ -50,11 +53,7 @@ class _HomePageState extends State<HomePage> {
               const MainMobile(),
 
             // Skills Section
-            Container(
-              height: 350,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
-            ),
+            const SkillsDesktop(),
             // Projects Section
             const SizedBox(
               height: 350,
