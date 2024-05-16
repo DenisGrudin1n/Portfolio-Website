@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolioapp/constants/constants.dart';
 
-class SkillsDesktop extends StatelessWidget {
-  const SkillsDesktop({super.key});
+class SkillsMinMobile extends StatelessWidget {
+  const SkillsMinMobile({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class SkillsDesktop extends StatelessWidget {
             height: 50,
           ),
           // Skills Container
-          Row(
+          Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
@@ -159,7 +159,7 @@ class SkillsDesktop extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 20,
+                height: 20,
               ),
               Container(
                 width: containerWidth,
@@ -284,7 +284,7 @@ class SkillsDesktop extends StatelessWidget {
                 ),
               ),
               const SizedBox(
-                width: 20,
+                height: 20,
               ),
               Container(
                 width: containerWidth,

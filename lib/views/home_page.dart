@@ -7,6 +7,8 @@ import 'package:portfolioapp/components/header_mobile.dart';
 import 'package:portfolioapp/components/main_desktop.dart';
 import 'package:portfolioapp/components/main_mobile.dart';
 import 'package:portfolioapp/components/skills_desktop.dart';
+import 'package:portfolioapp/components/skills_med_mobile.dart';
+import 'package:portfolioapp/components/skills_min_mobile.dart';
 import 'package:portfolioapp/constants/constants.dart';
 
 class HomePage extends StatefulWidget {
@@ -53,7 +55,13 @@ class _HomePageState extends State<HomePage> {
               const MainMobile(),
 
             // Skills Section
-            const SkillsDesktop(),
+            if (constraints.maxWidth >= kMaxSkillsWidth)
+              const SkillsDesktop()
+            else if (constraints.maxWidth >= kMedSkillsWidth)
+              const SkillsMedMobile()
+            else
+              const SkillsMinMobile(),
+
             // Projects Section
             const SizedBox(
               height: 350,

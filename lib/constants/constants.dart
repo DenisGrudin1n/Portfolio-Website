@@ -2,6 +2,12 @@ import 'package:flutter/material.dart';
 
 const double kMinDesktopWidth = 800.0;
 
+const double kMedSkillsWidth = 750.0;
+const double kMaxSkillsWidth = 1100.0;
+const double skillsIconSize = 55.0;
+const double heightBetweenSkillIconAndTitle = 3.0;
+const double skillsTitleTextSize = 16.0;
+
 const Color kLight = Colors.white;
 const Color bgLight1 = Color(0xff333646);
 const Color bgDark1 = Color.fromARGB(255, 47, 45, 57);
@@ -11,10 +17,6 @@ const Color bgLight2 = Colors.blueGrey;
 const FontWeight lightFontWeight = FontWeight.w100;
 const FontWeight mediumFontWeight = FontWeight.w500;
 const FontWeight boldFontWeight = FontWeight.bold;
-
-const skillsIconSize = 55.0;
-const heightBetweenSkillIconAndTitle = 3.0;
-const skillsTitleTextSize = 16.0;
 
 BoxDecoration kHeaderDecoration = BoxDecoration(
   gradient: const LinearGradient(
