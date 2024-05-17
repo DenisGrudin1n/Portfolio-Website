@@ -3,8 +3,8 @@ import 'package:portfolioapp/components/project_card.dart';
 import 'package:portfolioapp/constants/constants.dart';
 import 'package:portfolioapp/models/project_model.dart';
 
-class ProjectsDesktop extends StatelessWidget {
-  const ProjectsDesktop({super.key});
+class ProjectsSection extends StatelessWidget {
+  const ProjectsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,18 +26,14 @@ class ProjectsDesktop extends StatelessWidget {
             height: 25,
           ),
           // projects cards
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Wrap(
+            spacing: 20,
+            runSpacing: 20,
             children: [
-              ProjectCard(
-                project: projects[0],
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              ProjectCard(
-                project: projects[1],
-              ),
+              for (int i = 0; i < projects.length; i++)
+                ProjectCard(
+                  project: projects[i],
+                ),
             ],
           ),
         ],

@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 
 const double kMinDesktopWidth = 800.0;
 
-const double kMedSkillsWidth = 750.0;
-const double kMaxSkillsWidth = 1100.0;
 const double skillsIconSize = 55.0;
 const double heightBetweenSkillIconAndTitle = 3.0;
 const double skillsTitleTextSize = 16.0;

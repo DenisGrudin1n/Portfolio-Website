@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolioapp/constants/constants.dart';
 
-class SkillsDesktop extends StatelessWidget {
-  const SkillsDesktop({super.key});
+class SkillsSection extends StatelessWidget {
+  const SkillsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +32,9 @@ class SkillsDesktop extends StatelessWidget {
             height: 50,
           ),
           // Skills Container
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
+          Wrap(
+            spacing: 20,
+            runSpacing: 20,
             children: [
               Container(
                 width: containerWidth,
@@ -158,9 +159,6 @@ class SkillsDesktop extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(
-                width: 20,
-              ),
               Container(
                 width: containerWidth,
                 height: containerHeight,
@@ -282,9 +280,6 @@ class SkillsDesktop extends StatelessWidget {
                       ),
                   ],
                 ),
-              ),
-              const SizedBox(
-                width: 20,
               ),
               Container(
                 width: containerWidth,
