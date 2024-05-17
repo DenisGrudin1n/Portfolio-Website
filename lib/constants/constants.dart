@@ -9,6 +9,7 @@ const double heightBetweenSkillIconAndTitle = 3.0;
 const double skillsTitleTextSize = 16.0;
 
 const Color kLight = Colors.white;
+const Color kLightSecondary = Color.fromARGB(255, 187, 187, 187);
 const Color bgLight1 = Color(0xff333646);
 const Color bgDark1 = Color.fromARGB(255, 47, 45, 57);
 const Color yellowSecondary = Color.fromARGB(255, 250, 183, 89);
@@ -43,96 +44,96 @@ List<IconData> navIcons = [
 
 List<Map> socialmediaItems = [
   {
-    "img": "assets/linkedin.png",
+    "img": "assets/skillsIcons/linkedin.png",
     "title": "LinkedIn",
   },
   {
-    "img": "assets/instagram.png",
+    "img": "assets/skillsIcons/instagram.png",
     "title": "Instagram",
   },
   {
-    "img": "assets/telegram.png",
+    "img": "assets/skillsIcons/telegram.png",
     "title": "Telegram",
   }
 ];
 
 List<Map> technologyItems = [
   {
-    "img": "assets/dart-original.svg",
+    "img": "assets/skillsIcons/dart-original.svg",
     "title": "Dart",
   },
   {
-    "img": "assets/cplusplus-original.svg",
+    "img": "assets/skillsIcons/cplusplus-original.svg",
     "title": "C++",
   },
   {
-    "img": "assets/flutter-original.svg",
+    "img": "assets/skillsIcons/flutter-original.svg",
     "title": "  Flutter",
   },
   {
-    "img": "assets/csharp-original.svg",
+    "img": "assets/skillsIcons/csharp-original.svg",
     "title": "C#",
   },
   {
-    "img": "assets/firebase-original.svg",
+    "img": "assets/skillsIcons/firebase-original.svg",
     "title": "Firebase",
   },
   {
-    "img": "assets/python-original.svg",
+    "img": "assets/skillsIcons/python-original.svg",
     "title": "Python",
   }
 ];
 
 List<Map> toolItems = [
   {
-    "img": "assets/git-original.svg",
+    "img": "assets/skillsIcons/git-original.svg",
     "title": "Git",
   },
   {
-    "img": "assets/figma-original.svg",
+    "img": "assets/skillsIcons/figma-original.svg",
     "title": "Figma",
   },
   {
-    "img": "assets/github-original.svg",
+    "img": "assets/skillsIcons/github-original.svg",
     "title": "GitHub",
   },
   {
-    "img": "assets/photoshop-original.svg",
+    "img": "assets/skillsIcons/photoshop-original.svg",
     "title": "Photoshop",
   },
   {
-    "img": "assets/googlecloud-original.svg",
+    "img": "assets/skillsIcons/googlecloud-original.svg",
     "title": "Google Cloud",
   },
   {
-    "img": "assets/illustrator-original.svg",
+    "img": "assets/skillsIcons/illustrator-original.svg",
     "title": "Illustrator",
   },
   {
-    "img": "assets/androidstudio-original.svg",
+    "img": "assets/skillsIcons/androidstudio-original.svg",
     "title": "Android Studio",
   },
   {
-    "img": "assets/trello-original.svg",
+    "img": "assets/skillsIcons/trello-original.svg",
     "title": "Trello",
   },
 ];
 
 List<Map> platformItems = [
   {
-    "img": "assets/android-original.svg",
+    "img": "assets/skillsIcons/android-original.svg",
     "title": "Android",
   },
   {
-    "img": "assets/ios-original.svg",
+    "img": "assets/skillsIcons/ios-original.svg",
     "title": "IOS",
   },
   {
-    "img": "assets/web_icon.png",
+    "img": "assets/skillsIcons/web_icon.png",
     "title": "Web",
   },
   {
-    "img": "assets/desktop-icon.png",
+    "img": "assets/skillsIcons/desktop-icon.png",
     "title": "Desktop",
   }
 ];

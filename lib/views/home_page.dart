@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolioapp/components/drawer_mobile.dart';
 import 'package:portfolioapp/components/header_desktop.dart';
 import 'package:portfolioapp/components/header_mobile.dart';
 import 'package:portfolioapp/components/main_desktop.dart';
 import 'package:portfolioapp/components/main_mobile.dart';
+import 'package:portfolioapp/components/projects_desktop.dart';
 import 'package:portfolioapp/components/skills_desktop.dart';
 import 'package:portfolioapp/components/skills_med_mobile.dart';
 import 'package:portfolioapp/components/skills_min_mobile.dart';
@@ -63,16 +62,15 @@ class _HomePageState extends State<HomePage> {
               const SkillsMinMobile(),
 
             // Projects Section
-            const SizedBox(
-              height: 350,
-              width: double.maxFinite,
-            ),
+            const ProjectsDesktop(),
+
             // Contacts Section
             Container(
               height: 350,
               width: double.maxFinite,
               color: Colors.blueGrey,
             ),
+
             // Footer Section
             const SizedBox(
               height: 350,

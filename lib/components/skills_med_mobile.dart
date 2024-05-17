@@ -21,7 +21,7 @@ class SkillsMedMobile extends StatelessWidget {
         children: [
           // title
           const Text(
-            "WHAT CAN I DO",
+            "Skills",
             style: TextStyle(
               fontSize: 30,
               fontWeight: boldFontWeight,
@@ -49,7 +49,7 @@ class SkillsMedMobile extends StatelessWidget {
                         const Padding(
                           padding: EdgeInsets.only(top: 35),
                           child: Text(
-                            "Skills",
+                            "Technologies",
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: boldFontWeight,
