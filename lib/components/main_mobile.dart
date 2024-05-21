@@ -21,7 +21,7 @@ class MainMobile extends StatelessWidget {
           CircleAvatar(
             radius: screenWidth / 6,
             backgroundImage: const AssetImage(
-              "assets/me.png",
+              "assets/avatars/me.png",
             ),
           ),
           const SizedBox(

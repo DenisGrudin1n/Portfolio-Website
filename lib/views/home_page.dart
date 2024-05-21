@@ -19,6 +19,8 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  final scrollController = ScrollController();
+  final List<GlobalKey> navbarKeys = List.generate(5, (index) => GlobalKey());
 
   @override
   Widget build(BuildContext context) {
@@ -29,38 +31,50 @@ class _HomePageState extends State<HomePage> {
         endDrawer: constraints.maxWidth >= kMinDesktopWidth
             ? null
             : const DrawerMobile(),
-        body: ListView(
+        body: SingleChildScrollView(
+          controller: scrollController,
           scrollDirection: Axis.vertical,
-          children: [
-            // Header
-            if (constraints.maxWidth >= kMinDesktopWidth)
-              const HeaderDesktop()
-            else
-              HeaderMobile(
-                onLogoTap: () {},
-                onMenuTap: () {
-                  scaffoldKey.currentState?.openEndDrawer();
-                },
+          child: Column(
+            children: [
+              SizedBox(
+                key: navbarKeys.first,
+              ),
+              // Header
+              if (constraints.maxWidth >= kMinDesktopWidth)
+                const HeaderDesktop()
+              else
+                HeaderMobile(
+                  onLogoTap: () {},
+                  onMenuTap: () {
+                    scaffoldKey.currentState?.openEndDrawer();
+                  },
+                ),
+
+              // Main Section
+              if (constraints.maxWidth >= kMinDesktopWidth)
+                const MainDesktop()
+              else
+                const MainMobile(),
+
+              // Skills Section
+              SkillsSection(
+                key: navbarKeys[2],
               ),
 
-            // Main Section
-            if (constraints.maxWidth >= kMinDesktopWidth)
-              const MainDesktop()
-            else
-              const MainMobile(),
+              // Projects Section
+              ProjectsSection(
+                key: navbarKeys[3],
+              ),
 
-            // Skills Section
-            const SkillsSection(),
+              // Contacts Section
+              ContactsSection(
+                key: navbarKeys[4],
+              ),
 
-            // Projects Section
-            const ProjectsSection(),
-
-            // Contacts Section
-            const ContactsSection(),
-
-            // Footer Section
-            const FooterSection(),
-          ],
+              // Footer Section
+              const FooterSection(),
+            ],
+          ),
         ),
       );
     });

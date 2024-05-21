@@ -26,17 +26,17 @@ BoxDecoration kHeaderDecoration = BoxDecoration(
 
 List<String> navTitles = [
   "Home",
+  "About",
   "Skills",
   "Projects",
-  "Blog",
   "Contact",
 ];
 
 List<IconData> navIcons = [
   Icons.home,
+  Icons.person,
   Icons.handyman_outlined,
   Icons.apps,
-  Icons.web,
   Icons.quick_contacts_mail,
 ];
 

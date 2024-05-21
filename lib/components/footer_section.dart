@@ -11,6 +11,7 @@ class FooterSection extends StatelessWidget {
       width: double.maxFinite,
       alignment: Alignment.center,
       child: const Wrap(
+        runSpacing: 10,
         alignment: WrapAlignment.spaceEvenly,
         children: [
           Text(
