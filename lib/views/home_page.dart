@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolioapp/components/contacts_section.dart';
 import 'package:portfolioapp/components/drawer_mobile.dart';
 import 'package:portfolioapp/components/header_desktop.dart';
 import 'package:portfolioapp/components/header_mobile.dart';
@@ -56,13 +57,12 @@ class _HomePageState extends State<HomePage> {
 
             // Projects Section
             const ProjectsSection(),
+            const SizedBox(
+              height: 25,
+            ),
 
             // Contacts Section
-            Container(
-              height: 350,
-              width: double.maxFinite,
-              color: Colors.blueGrey,
-            ),
+            const ContactsSection(),
 
             // Footer Section
             const SizedBox(

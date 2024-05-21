@@ -135,3 +135,36 @@ List<Map> platformItems = [
     "title": "Desktop",
   }
 ];
+
+List<Map<String, String>> contactItems = [
+  {
+    "icon": "assets/contactsIcons/email.png",
+    "title": "Email",
+    "subtitle": "denisgrudininworks@gmail.com",
+    "link": "mailto:denisgrudininworks@gmail.com",
+  },
+  {
+    "icon": "assets/contactsIcons/linkedin.png",
+    "title": "LinkedIn",
+    "subtitle": "linkedin.com/in/denis-grudinin/",
+    "link": "https://linkedin.com/in/denis-grudinin/",
+  },
+  {
+    "icon": "assets/contactsIcons/mobile.png",
+    "title": "Mobile",
+    "subtitle": "+380996276517",
+    "link": "tel:+380996276517",
+  },
+  {
+    "icon": "assets/contactsIcons/github.png",
+    "title": "GitHub",
+    "subtitle": "@DenisGrudin1n",
+    "link": "https://github.com/DenisGrudin1n",
+  },
+  {
+    "icon": "assets/contactsIcons/telegram.png",
+    "title": "Telegram",
+    "subtitle": "@Denis_Grudinin",
+    "link": "https://t.me/Denis_Grudinin",
+  }
+];

@@ -10,7 +10,7 @@ class ProjectsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite,
-      padding: const EdgeInsets.fromLTRB(25, 25, 25, 50),
+      padding: const EdgeInsets.fromLTRB(25, 50, 25, 75),
       child: Column(
         children: [
           // projects title
@@ -23,7 +23,7 @@ class ProjectsSection extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 25,
+            height: 50,
           ),
           // projects cards
           Wrap(
