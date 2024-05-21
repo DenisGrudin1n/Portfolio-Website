@@ -44,7 +44,7 @@ class ContactsSection extends StatelessWidget {
                   contactItem(contactItems[2], launchUrl),
                 ],
               ),
-              const SizedBox(width: 250),
+              const SizedBox(width: 350),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
