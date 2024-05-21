@@ -29,7 +29,7 @@ List<String> navTitles = [
   "About",
   "Skills",
   "Projects",
-  "Contact",
+  "Contacts",
 ];
 
 List<IconData> navIcons = [

@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:portfolioapp/constants/constants.dart';
 
 class DrawerMobile extends StatelessWidget {
-  const DrawerMobile({super.key});
+  final Function(int) onNavItemTap;
+
+  const DrawerMobile({
+    super.key,
+    required this.onNavItemTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +45,9 @@ class DrawerMobile extends StatelessWidget {
                 color: kLight,
               ),
               title: Text(navTitles[i]),
-              onTap: () {},
+              onTap: () {
+                onNavItemTap(i);
+              },
             ),
         ],
       ),

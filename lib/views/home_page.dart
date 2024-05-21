@@ -30,7 +30,12 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: bgDark1,
         endDrawer: constraints.maxWidth >= kMinDesktopWidth
             ? null
-            : const DrawerMobile(),
+            : DrawerMobile(
+                onNavItemTap: (int navIndex) {
+                  scaffoldKey.currentState?.closeEndDrawer();
+                  scrollToSection(navIndex);
+                },
+              ),
         body: SingleChildScrollView(
           controller: scrollController,
           scrollDirection: Axis.vertical,
@@ -41,7 +46,11 @@ class _HomePageState extends State<HomePage> {
               ),
               // Header
               if (constraints.maxWidth >= kMinDesktopWidth)
-                const HeaderDesktop()
+                HeaderDesktop(
+                  onNavMenuTap: (int navIndex) {
+                    scrollToSection(navIndex);
+                  },
+                )
               else
                 HeaderMobile(
                   onLogoTap: () {},
@@ -78,5 +87,14 @@ class _HomePageState extends State<HomePage> {
         ),
       );
     });
+  }
+
+  void scrollToSection(int navIndex) {
+    final key = navbarKeys[navIndex];
+    Scrollable.ensureVisible(
+      key.currentContext!,
+      duration: const Duration(milliseconds: 1000),
+      curve: Curves.easeInOut,
+    );
   }
 }
