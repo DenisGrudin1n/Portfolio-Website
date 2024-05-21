@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolioapp/components/about_section.dart';
 import 'package:portfolioapp/components/contacts_section.dart';
 import 'package:portfolioapp/components/drawer_mobile.dart';
 import 'package:portfolioapp/components/footer_section.dart';
@@ -22,6 +23,15 @@ class _HomePageState extends State<HomePage> {
   final scrollController = ScrollController();
   final List<GlobalKey> navbarKeys = List.generate(5, (index) => GlobalKey());
 
+  void scrollToSection(int navIndex) {
+    final key = navbarKeys[navIndex];
+    Scrollable.ensureVisible(
+      key.currentContext!,
+      duration: const Duration(milliseconds: 1000),
+      curve: Curves.easeInOut,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constraints) {
@@ -44,6 +54,7 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 key: navbarKeys.first,
               ),
+
               // Header
               if (constraints.maxWidth >= kMinDesktopWidth)
                 HeaderDesktop(
@@ -64,6 +75,10 @@ class _HomePageState extends State<HomePage> {
                 const MainDesktop()
               else
                 const MainMobile(),
+
+              AboutSection(
+                key: navbarKeys[1],
+              ),
 
               // Skills Section
               SkillsSection(
@@ -87,14 +102,5 @@ class _HomePageState extends State<HomePage> {
         ),
       );
     });
-  }
-
-  void scrollToSection(int navIndex) {
-    final key = navbarKeys[navIndex];
-    Scrollable.ensureVisible(
-      key.currentContext!,
-      duration: const Duration(milliseconds: 1000),
-      curve: Curves.easeInOut,
-    );
   }
 }
