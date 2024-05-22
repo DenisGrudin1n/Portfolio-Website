@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolioapp/components/about_section.dart';
+import 'package:portfolioapp/components/about_desktop.dart';
+import 'package:portfolioapp/components/about_mobile.dart';
 import 'package:portfolioapp/components/contacts_section.dart';
 import 'package:portfolioapp/components/drawer_mobile.dart';
 import 'package:portfolioapp/components/footer_section.dart';
@@ -22,6 +23,8 @@ class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final scrollController = ScrollController();
   final List<GlobalKey> navbarKeys = List.generate(5, (index) => GlobalKey());
+  final mainDesktopKey = GlobalKey();
+  final mainMobileKey = GlobalKey();
 
   void scrollToSection(int navIndex) {
     final key = navbarKeys[navIndex];
@@ -46,59 +49,56 @@ class _HomePageState extends State<HomePage> {
                   scrollToSection(navIndex);
                 },
               ),
-        body: SingleChildScrollView(
+        body: CustomScrollView(
           controller: scrollController,
-          scrollDirection: Axis.vertical,
-          child: Column(
-            children: [
-              SizedBox(
-                key: navbarKeys.first,
-              ),
-
-              // Header
-              if (constraints.maxWidth >= kMinDesktopWidth)
-                HeaderDesktop(
-                  onNavMenuTap: (int navIndex) {
-                    scrollToSection(navIndex);
-                  },
-                )
-              else
-                HeaderMobile(
-                  onLogoTap: () {},
-                  onMenuTap: () {
-                    scaffoldKey.currentState?.openEndDrawer();
-                  },
+          slivers: [
+            SliverAppBar(
+              pinned: true,
+              leading: SizedBox.shrink(), // Приховує іконку трьох рисочок
+              actions: [
+                SizedBox.shrink()
+              ], // Забезпечує порожній простір замість іконки
+              flexibleSpace: constraints.maxWidth >= kMinDesktopWidth
+                  ? HeaderDesktop(
+                      onNavMenuTap: (int navIndex) {
+                        scrollToSection(navIndex);
+                      },
+                    )
+                  : HeaderMobile(
+                      onLogoTap: () {},
+                      onMenuTap: () {
+                        scaffoldKey.currentState?.openEndDrawer();
+                      },
+                    ),
+            ),
+            SliverList(
+              delegate: SliverChildListDelegate([
+                SizedBox(
+                  key: constraints.maxWidth >= kMinDesktopWidth
+                      ? mainDesktopKey
+                      : mainMobileKey,
                 ),
-
-              // Main Section
-              if (constraints.maxWidth >= kMinDesktopWidth)
-                const MainDesktop()
-              else
-                const MainMobile(),
-
-              AboutSection(
-                key: navbarKeys[1],
-              ),
-
-              // Skills Section
-              SkillsSection(
-                key: navbarKeys[2],
-              ),
-
-              // Projects Section
-              ProjectsSection(
-                key: navbarKeys[3],
-              ),
-
-              // Contacts Section
-              ContactsSection(
-                key: navbarKeys[4],
-              ),
-
-              // Footer Section
-              const FooterSection(),
-            ],
-          ),
+                if (constraints.maxWidth >= kMinDesktopWidth)
+                  MainDesktop(key: mainDesktopKey)
+                else
+                  MainMobile(key: mainMobileKey),
+                if (constraints.maxWidth >= kMinAboutWidth)
+                  AboutDesktop()
+                else
+                  AboutMobile(),
+                SkillsSection(
+                  key: navbarKeys[2],
+                ),
+                ProjectsSection(
+                  key: navbarKeys[3],
+                ),
+                ContactsSection(
+                  key: navbarKeys[4],
+                ),
+                const FooterSection(),
+              ]),
+            ),
+          ],
         ),
       );
     });

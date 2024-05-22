@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 const double kMinDesktopWidth = 800.0;
+const double kMinAboutWidth = 950.0;
+const double kBetweenAboutWidth = 1100.0;
 
 const double skillsIconSize = 55.0;
 const double heightBetweenSkillIconAndTitle = 3.0;
@@ -19,9 +21,9 @@ const FontWeight boldFontWeight = FontWeight.bold;
 
 BoxDecoration kHeaderDecoration = BoxDecoration(
   gradient: const LinearGradient(
-    colors: [Colors.transparent, bgLight1],
+    colors: [bgDark1, bgLight1],
   ),
-  borderRadius: BorderRadius.circular(100),
+  //borderRadius: BorderRadius.circular(100),
 );
 
 List<String> navTitles = [
