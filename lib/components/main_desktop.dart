@@ -50,9 +50,9 @@ class MainDesktop extends StatelessWidget {
                   SizedBox(
                     width: 250,
                     height: 60,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: yellowSecondary,
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        side: const BorderSide(color: yellowSecondary),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
                         ),
@@ -60,13 +60,26 @@ class MainDesktop extends StatelessWidget {
                       onPressed: () {
                         downloadCV();
                       },
-                      child: const Text(
-                        "Download CV",
-                        style: TextStyle(
-                          color: kLight,
-                          fontWeight: boldFontWeight,
-                          fontSize: 20,
-                        ),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Download CV",
+                            style: TextStyle(
+                              color: yellowSecondary,
+                              fontWeight: boldFontWeight,
+                              fontSize: 20,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 2,
+                          ),
+                          Icon(
+                            Icons.file_download_outlined,
+                            color: yellowSecondary,
+                            size: 28,
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -84,13 +97,26 @@ class MainDesktop extends StatelessWidget {
                         ),
                       ),
                       onPressed: onContactButtonTap,
-                      child: const Text(
-                        "Get in touch",
-                        style: TextStyle(
-                          color: kLight,
-                          fontWeight: boldFontWeight,
-                          fontSize: 20,
-                        ),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Get in touch",
+                            style: TextStyle(
+                              color: kLight,
+                              fontWeight: boldFontWeight,
+                              fontSize: 20,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 7,
+                          ),
+                          Icon(
+                            Icons.chat_outlined,
+                            color: kLight,
+                            size: 25,
+                          ),
+                        ],
                       ),
                     ),
                   ),
