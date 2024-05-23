@@ -19,8 +19,8 @@ const FontWeight lightFontWeight = FontWeight.w100;
 const FontWeight mediumFontWeight = FontWeight.w500;
 const FontWeight boldFontWeight = FontWeight.bold;
 
-BoxDecoration kHeaderDecoration = BoxDecoration(
-  gradient: const LinearGradient(
+BoxDecoration kHeaderDecoration = const BoxDecoration(
+  gradient: LinearGradient(
     colors: [bgDark1, bgLight1],
   ),
   //borderRadius: BorderRadius.circular(100),

@@ -8,8 +8,8 @@ class SiteLogo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {},
+    return InkWell(
+      onTap: onTap,
       child: const Text(
         "Portfolio",
         style: TextStyle(

@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:portfolioapp/constants/constants.dart';
 
 class MainDesktop extends StatelessWidget {
-  const MainDesktop({super.key});
+  final VoidCallback? onContactButtonTap;
+
+  const MainDesktop({super.key, required this.onContactButtonTap});
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +80,7 @@ class MainDesktop extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: onContactButtonTap,
                       child: const Text(
                         "Get in touch",
                         style: TextStyle(

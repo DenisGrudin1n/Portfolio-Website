@@ -23,84 +23,103 @@ class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final scrollController = ScrollController();
   final List<GlobalKey> navbarKeys = List.generate(5, (index) => GlobalKey());
-  final mainDesktopKey = GlobalKey();
-  final mainMobileKey = GlobalKey();
+  final List<GlobalKey> navbarMobileKeys =
+      List.generate(2, (index) => GlobalKey());
 
   void scrollToSection(int navIndex) {
     final key = navbarKeys[navIndex];
     Scrollable.ensureVisible(
       key.currentContext!,
-      duration: const Duration(milliseconds: 1000),
+      duration: const Duration(seconds: 1),
+      curve: Curves.easeInOut,
+    );
+  }
+
+  void scrollToMobileSection(int navMobileIndex) {
+    final key = navbarMobileKeys[navMobileIndex];
+    Scrollable.ensureVisible(
+      key.currentContext!,
+      duration: const Duration(seconds: 1),
       curve: Curves.easeInOut,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      return Scaffold(
-        key: scaffoldKey,
-        backgroundColor: bgDark1,
-        endDrawer: constraints.maxWidth >= kMinDesktopWidth
-            ? null
-            : DrawerMobile(
-                onNavItemTap: (int navIndex) {
-                  scaffoldKey.currentState?.closeEndDrawer();
-                  scrollToSection(navIndex);
-                },
-              ),
-        body: CustomScrollView(
-          controller: scrollController,
-          slivers: [
-            SliverAppBar(
-              pinned: true,
-              leading: SizedBox.shrink(), // Приховує іконку трьох рисочок
-              actions: [
-                SizedBox.shrink()
-              ], // Забезпечує порожній простір замість іконки
-              flexibleSpace: constraints.maxWidth >= kMinDesktopWidth
-                  ? HeaderDesktop(
-                      onNavMenuTap: (int navIndex) {
-                        scrollToSection(navIndex);
-                      },
-                    )
-                  : HeaderMobile(
-                      onLogoTap: () {},
-                      onMenuTap: () {
-                        scaffoldKey.currentState?.openEndDrawer();
-                      },
-                    ),
-            ),
-            SliverList(
-              delegate: SliverChildListDelegate([
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        return Scaffold(
+          key: scaffoldKey,
+          backgroundColor: bgDark1,
+          endDrawer: constraints.maxWidth >= kMinDesktopWidth
+              ? null
+              : DrawerMobile(
+                  onNavItemTap: (int navIndex) {
+                    scaffoldKey.currentState?.closeEndDrawer();
+                    if (navIndex < 2) {
+                      scrollToMobileSection(navIndex);
+                    } else {
+                      scrollToSection(navIndex);
+                    }
+                  },
+                ),
+          body: SingleChildScrollView(
+            controller: scrollController,
+            scrollDirection: Axis.vertical,
+            child: Column(
+              children: [
+                SizedBox(key: navbarKeys.first),
                 SizedBox(
-                  key: constraints.maxWidth >= kMinDesktopWidth
-                      ? mainDesktopKey
-                      : mainMobileKey,
+                  child: constraints.maxWidth >= kMinDesktopWidth
+                      ? HeaderDesktop(
+                          onLogoTap: () {
+                            scrollToSection(0);
+                          },
+                          onNavMenuTap: (int navIndex) {
+                            scrollToSection(navIndex);
+                          },
+                        )
+                      : HeaderMobile(
+                          onLogoTap: () {
+                            scrollToMobileSection(0);
+                          },
+                          onMenuTap: () {
+                            scaffoldKey.currentState?.openEndDrawer();
+                          },
+                        ),
                 ),
-                if (constraints.maxWidth >= kMinDesktopWidth)
-                  MainDesktop(key: mainDesktopKey)
-                else
-                  MainMobile(key: mainMobileKey),
-                if (constraints.maxWidth >= kMinAboutWidth)
-                  AboutDesktop()
-                else
-                  AboutMobile(),
-                SkillsSection(
-                  key: navbarKeys[2],
-                ),
-                ProjectsSection(
-                  key: navbarKeys[3],
-                ),
-                ContactsSection(
-                  key: navbarKeys[4],
-                ),
+                SizedBox(
+                    child: constraints.maxWidth >= kMinDesktopWidth
+                        ? MainDesktop(
+                            key: navbarKeys[0],
+                            onContactButtonTap: () {
+                              scrollToSection(4);
+                            },
+                          )
+                        : MainMobile(
+                            key: navbarMobileKeys[0],
+                            onContactButtonTap: () {
+                              scrollToSection(4);
+                            },
+                          )),
+                SizedBox(
+                    width: double.maxFinite,
+                    child: constraints.maxWidth >= kMinAboutWidth
+                        ? AboutDesktop(
+                            key: navbarKeys[1],
+                          )
+                        : AboutMobile(
+                            key: navbarMobileKeys[1],
+                          )),
+                SizedBox(key: navbarKeys[2], child: const SkillsSection()),
+                SizedBox(key: navbarKeys[3], child: const ProjectsSection()),
+                SizedBox(key: navbarKeys[4], child: const ContactsSection()),
                 const FooterSection(),
-              ]),
+              ],
             ),
-          ],
-        ),
-      );
-    });
+          ),
+        );
+      },
+    );
   }
 }

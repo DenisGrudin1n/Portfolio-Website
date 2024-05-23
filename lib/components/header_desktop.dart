@@ -4,10 +4,12 @@ import 'package:portfolioapp/constants/constants.dart';
 
 class HeaderDesktop extends StatelessWidget {
   final Function(int) onNavMenuTap;
+  final VoidCallback? onLogoTap;
 
   const HeaderDesktop({
     super.key,
     required this.onNavMenuTap,
+    required this.onLogoTap,
   });
 
   @override
@@ -20,7 +22,7 @@ class HeaderDesktop extends StatelessWidget {
       child: Row(
         children: [
           SiteLogo(
-            onTap: () {},
+            onTap: onLogoTap,
           ),
           const Spacer(),
           for (int i = 0; i < navTitles.length; i++)

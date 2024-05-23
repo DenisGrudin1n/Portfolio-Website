@@ -22,7 +22,7 @@ class AboutDesktop extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               // title
-              Text(
+              const Text(
                 "About Me",
                 style: TextStyle(
                   fontSize: 30,
@@ -48,7 +48,7 @@ class AboutDesktop extends StatelessWidget {
                   ),
                   SizedBox(
                     width: textWidth,
-                    child: Column(
+                    child: const Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
@@ -59,7 +59,7 @@ class AboutDesktop extends StatelessWidget {
                             fontSize: 22,
                           ),
                         ),
-                        const SizedBox(
+                        SizedBox(
                           height: 20,
                         ),
                         Text(
