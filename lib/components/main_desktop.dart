@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolioapp/constants/constants.dart';
+import 'package:portfolioapp/services/download_service.dart';
 
 class MainDesktop extends StatelessWidget {
   final VoidCallback? onContactButtonTap;
@@ -56,7 +57,9 @@ class MainDesktop extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        downloadCV();
+                      },
                       child: const Text(
                         "Download CV",
                         style: TextStyle(

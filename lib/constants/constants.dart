@@ -12,7 +12,7 @@ const Color kLight = Colors.white;
 const Color kLightSecondary = Color.fromARGB(255, 187, 187, 187);
 const Color bgLight1 = Color(0xff333646);
 const Color bgDark1 = Color.fromARGB(255, 47, 45, 57);
-const Color yellowSecondary = Color.fromARGB(255, 250, 183, 89);
+const Color yellowSecondary = Color.fromARGB(255, 252, 175, 68);
 const Color bgLight2 = Colors.blueGrey;
 
 const FontWeight lightFontWeight = FontWeight.w100;

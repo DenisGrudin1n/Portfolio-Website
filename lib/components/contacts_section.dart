@@ -1,17 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:portfolioapp/constants/constants.dart';
-import 'package:url_launcher/url_launcher_string.dart';
+import 'package:portfolioapp/services/download_service.dart';
 
 class ContactsSection extends StatelessWidget {
   const ContactsSection({Key? key}) : super(key: key);
-
-  Future<void> launchUrl(String url) async {
-    if (await canLaunchUrlString(url)) {
-      await launchUrlString(url);
-    } else {
-      throw 'Could not launch $url';
-    }
-  }
 
   @override
   Widget build(BuildContext context) {

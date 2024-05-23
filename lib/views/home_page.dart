@@ -63,60 +63,68 @@ class _HomePageState extends State<HomePage> {
                     }
                   },
                 ),
-          body: SingleChildScrollView(
-            controller: scrollController,
-            scrollDirection: Axis.vertical,
-            child: Column(
-              children: [
-                SizedBox(key: navbarKeys.first),
-                SizedBox(
-                  child: constraints.maxWidth >= kMinDesktopWidth
-                      ? HeaderDesktop(
-                          onLogoTap: () {
-                            scrollToSection(0);
-                          },
-                          onNavMenuTap: (int navIndex) {
-                            scrollToSection(navIndex);
-                          },
-                        )
-                      : HeaderMobile(
-                          onLogoTap: () {
-                            scrollToMobileSection(0);
-                          },
-                          onMenuTap: () {
-                            scaffoldKey.currentState?.openEndDrawer();
-                          },
-                        ),
+          body: Column(
+            children: [
+              SizedBox(
+                child: constraints.maxWidth >= kMinDesktopWidth
+                    ? HeaderDesktop(
+                        onLogoTap: () {
+                          scrollToSection(0);
+                        },
+                        onNavMenuTap: (int navIndex) {
+                          scrollToSection(navIndex);
+                        },
+                      )
+                    : HeaderMobile(
+                        onLogoTap: () {
+                          scrollToMobileSection(0);
+                        },
+                        onMenuTap: () {
+                          scaffoldKey.currentState?.openEndDrawer();
+                        },
+                      ),
+              ),
+              Expanded(
+                child: SingleChildScrollView(
+                  controller: scrollController,
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    children: [
+                      SizedBox(
+                          child: constraints.maxWidth >= kMinDesktopWidth
+                              ? MainDesktop(
+                                  key: navbarKeys[0],
+                                  onContactButtonTap: () {
+                                    scrollToSection(4);
+                                  },
+                                )
+                              : MainMobile(
+                                  key: navbarMobileKeys[0],
+                                  onContactButtonTap: () {
+                                    scrollToSection(4);
+                                  },
+                                )),
+                      SizedBox(
+                          width: double.maxFinite,
+                          child: constraints.maxWidth >= kMinAboutWidth
+                              ? AboutDesktop(
+                                  key: navbarKeys[1],
+                                )
+                              : AboutMobile(
+                                  key: navbarMobileKeys[1],
+                                )),
+                      SizedBox(
+                          key: navbarKeys[2], child: const SkillsSection()),
+                      SizedBox(
+                          key: navbarKeys[3], child: const ProjectsSection()),
+                      SizedBox(
+                          key: navbarKeys[4], child: const ContactsSection()),
+                      const FooterSection(),
+                    ],
+                  ),
                 ),
-                SizedBox(
-                    child: constraints.maxWidth >= kMinDesktopWidth
-                        ? MainDesktop(
-                            key: navbarKeys[0],
-                            onContactButtonTap: () {
-                              scrollToSection(4);
-                            },
-                          )
-                        : MainMobile(
-                            key: navbarMobileKeys[0],
-                            onContactButtonTap: () {
-                              scrollToSection(4);
-                            },
-                          )),
-                SizedBox(
-                    width: double.maxFinite,
-                    child: constraints.maxWidth >= kMinAboutWidth
-                        ? AboutDesktop(
-                            key: navbarKeys[1],
-                          )
-                        : AboutMobile(
-                            key: navbarMobileKeys[1],
-                          )),
-                SizedBox(key: navbarKeys[2], child: const SkillsSection()),
-                SizedBox(key: navbarKeys[3], child: const ProjectsSection()),
-                SizedBox(key: navbarKeys[4], child: const ContactsSection()),
-                const FooterSection(),
-              ],
-            ),
+              ),
+            ],
           ),
         );
       },
