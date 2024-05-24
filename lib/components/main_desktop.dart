@@ -41,7 +41,7 @@ class MainDesktop extends StatelessWidget {
                 style: TextStyle(
                   color: kLight,
                   fontWeight: mediumFontWeight,
-                  fontSize: 22,
+                  fontSize: 20,
                   height: 1.7,
                 ),
               ),
