@@ -108,7 +108,8 @@ class MainMobile extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        downloadCV();
+                        launchUrl(
+                            "https://drive.google.com/file/d/1DTmKNntFXnCUQAYA9xH-DDg1hSnStldv/view?usp=sharing");
                       },
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -186,7 +187,10 @@ class MainMobile extends StatelessWidget {
                           borderRadius: BorderRadius.circular(20),
                         ),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        launchUrl(
+                            "https://drive.google.com/file/d/1DTmKNntFXnCUQAYA9xH-DDg1hSnStldv/view?usp=sharing");
+                      },
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

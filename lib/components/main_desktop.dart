@@ -58,7 +58,8 @@ class MainDesktop extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        downloadCV();
+                        launchUrl(
+                            "https://drive.google.com/file/d/1DTmKNntFXnCUQAYA9xH-DDg1hSnStldv/view?usp=sharing");
                       },
                       child: const Row(
                         mainAxisAlignment: MainAxisAlignment.center,
