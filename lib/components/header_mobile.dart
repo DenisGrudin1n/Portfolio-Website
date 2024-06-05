@@ -1,13 +1,61 @@
+import 'dart:math';
+
+import 'package:animated_widgets/animated_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolioapp/components/site_logo.dart';
 import 'package:portfolioapp/constants/constants.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 
-class HeaderMobile extends StatelessWidget {
+class HeaderMobile extends StatefulWidget {
   final VoidCallback? onLogoTap;
   final VoidCallback? onMenuTap;
 
   const HeaderMobile(
       {super.key, required this.onLogoTap, required this.onMenuTap});
+
+  @override
+  State<HeaderMobile> createState() => _HeaderMobileState();
+}
+
+class _HeaderMobileState extends State<HeaderMobile>
+    with SingleTickerProviderStateMixin {
+  late AnimationController animationController;
+  late Animation<double> opacityAnimation;
+  bool isLogoVisible = false;
+  bool isDrawerIconVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 300),
+    );
+    opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(
+        parent: animationController,
+        curve: Curves.easeInOut,
+      ),
+    );
+    animationController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    animationController.dispose();
+    super.dispose();
+  }
+
+  void startAnimations() async {
+    setState(() {
+      isLogoVisible = true;
+      animationController.forward();
+      isDrawerIconVisible = true;
+      animationController.forward();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,15 +65,53 @@ class HeaderMobile extends StatelessWidget {
       decoration: kHeaderDecoration,
       child: Row(
         children: [
-          SiteLogo(
-            onTap: onLogoTap,
+          VisibilityDetector(
+            key: const Key('headerMobileLogo'),
+            onVisibilityChanged: (info) {
+              if (info.visibleFraction > 0.5) {
+                startAnimations();
+              }
+            },
+            child: TranslationAnimatedWidget(
+              duration: const Duration(milliseconds: 50),
+              enabled: isLogoVisible,
+              values: const [
+                Offset(0, 0),
+                Offset(0, 0),
+              ],
+              child: Opacity(
+                opacity: pow(opacityAnimation.value, 5).toDouble(),
+                child: SiteLogo(
+                  onTap: widget.onLogoTap,
+                ),
+              ),
+            ),
           ),
           const Spacer(),
-          IconButton(
-            onPressed: onMenuTap,
-            icon: const Icon(
-              Icons.menu,
-              color: kLight,
+          VisibilityDetector(
+            key: const Key('headerMobileDrawerIcon'),
+            onVisibilityChanged: (info) {
+              if (info.visibleFraction > 0.5) {
+                startAnimations();
+              }
+            },
+            child: TranslationAnimatedWidget(
+              duration: const Duration(milliseconds: 50),
+              enabled: isDrawerIconVisible,
+              values: const [
+                Offset(0, 0),
+                Offset(0, 0),
+              ],
+              child: Opacity(
+                opacity: pow(opacityAnimation.value, 5).toDouble(),
+                child: IconButton(
+                  onPressed: widget.onMenuTap,
+                  icon: const Icon(
+                    Icons.menu,
+                    color: kLight,
+                  ),
+                ),
+              ),
             ),
           ),
           const SizedBox(

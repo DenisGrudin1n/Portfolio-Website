@@ -15,7 +15,7 @@ class FooterSection extends StatelessWidget {
         alignment: WrapAlignment.spaceEvenly,
         children: [
           Text(
-            "Copyright © 2023. All rights are reserved",
+            "Copyright © 2024. All rights are reserved",
             style: TextStyle(
               fontWeight: mediumFontWeight,
               fontSize: 18,
