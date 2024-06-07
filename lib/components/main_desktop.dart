@@ -182,7 +182,7 @@ class MainDesktopState extends State<MainDesktop>
                           height: 60,
                           child: OutlinedButton(
                             style: OutlinedButton.styleFrom(
-                              side: const BorderSide(color: yellowSecondary),
+                              side: const BorderSide(color: greenSecondary),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),
@@ -197,7 +197,7 @@ class MainDesktopState extends State<MainDesktop>
                                 Text(
                                   "Download CV",
                                   style: TextStyle(
-                                    color: yellowSecondary,
+                                    color: greenSecondary,
                                     fontWeight: boldFontWeight,
                                     fontSize: 20,
                                   ),
@@ -207,7 +207,7 @@ class MainDesktopState extends State<MainDesktop>
                                 ),
                                 Icon(
                                   Icons.file_download_outlined,
-                                  color: yellowSecondary,
+                                  color: greenSecondary,
                                   size: 28,
                                 ),
                               ],
@@ -236,12 +236,22 @@ class MainDesktopState extends State<MainDesktop>
                       ],
                       child: Opacity(
                         opacity: isButton2Visible ? opacityAnimation.value : 0,
-                        child: SizedBox(
+                        child: Container(
                           width: 250,
                           height: 60,
+                          decoration: BoxDecoration(
+                            gradient: kGreenGradient,
+                            borderRadius: BorderRadius.circular(20),
+                          ),
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: yellowSecondary,
+                              backgroundColor: Colors.transparent,
+                              foregroundColor: Colors.transparent,
+                              shadowColor: Colors.transparent,
+                              surfaceTintColor: Colors.transparent,
+                              disabledBackgroundColor: Colors.transparent,
+                              disabledForegroundColor: Colors.transparent,
+                              elevation: 0,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(20),
                               ),

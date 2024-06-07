@@ -301,8 +301,7 @@ class MainMobileState extends State<MainMobile>
                               height: 60,
                               child: OutlinedButton(
                                 style: OutlinedButton.styleFrom(
-                                  side:
-                                      const BorderSide(color: yellowSecondary),
+                                  side: const BorderSide(color: greenSecondary),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),
                                   ),
@@ -317,7 +316,7 @@ class MainMobileState extends State<MainMobile>
                                     Text(
                                       "Download CV",
                                       style: TextStyle(
-                                        color: yellowSecondary,
+                                        color: greenSecondary,
                                         fontWeight: boldFontWeight,
                                         fontSize: 20,
                                       ),
@@ -327,7 +326,7 @@ class MainMobileState extends State<MainMobile>
                                     ),
                                     Icon(
                                       Icons.file_download_outlined,
-                                      color: yellowSecondary,
+                                      color: greenSecondary,
                                       size: 28,
                                     ),
                                   ],
@@ -354,7 +353,7 @@ class MainMobileState extends State<MainMobile>
                               height: 60,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: yellowSecondary,
+                                  backgroundColor: greenSecondary,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),
                                   ),
@@ -406,8 +405,7 @@ class MainMobileState extends State<MainMobile>
                               height: 60,
                               child: OutlinedButton(
                                 style: OutlinedButton.styleFrom(
-                                  side:
-                                      const BorderSide(color: yellowSecondary),
+                                  side: const BorderSide(color: greenSecondary),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),
                                   ),
@@ -422,7 +420,7 @@ class MainMobileState extends State<MainMobile>
                                     Text(
                                       "Download CV",
                                       style: TextStyle(
-                                        color: yellowSecondary,
+                                        color: greenSecondary,
                                         fontWeight: boldFontWeight,
                                         fontSize: 20,
                                       ),
@@ -432,7 +430,7 @@ class MainMobileState extends State<MainMobile>
                                     ),
                                     Icon(
                                       Icons.file_download_outlined,
-                                      color: yellowSecondary,
+                                      color: greenSecondary,
                                       size: 28,
                                     ),
                                   ],
@@ -459,7 +457,7 @@ class MainMobileState extends State<MainMobile>
                               height: 60,
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: yellowSecondary,
+                                  backgroundColor: greenSecondary,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),
                                   ),

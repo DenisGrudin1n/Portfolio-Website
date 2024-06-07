@@ -133,7 +133,7 @@ class _SkillsSectionState extends State<SkillsSection>
                   height: containerHeight,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    color: bgDark1,
+                    color: darkBlack,
                   ),
                   child: Column(
                     children: [
@@ -197,7 +197,7 @@ class _SkillsSectionState extends State<SkillsSection>
                   height: containerHeight,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    color: bgDark1,
+                    color: darkBlack,
                   ),
                   child: Column(
                     children: [
@@ -261,7 +261,7 @@ class _SkillsSectionState extends State<SkillsSection>
                   height: containerHeight,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(12),
-                    color: bgDark1,
+                    color: darkBlack,
                   ),
                   child: Column(
                     children: [

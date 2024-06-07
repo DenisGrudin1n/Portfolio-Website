@@ -10,10 +10,14 @@ const double skillsTitleTextSize = 16.0;
 
 const Color kLight = Colors.white;
 const Color kLightSecondary = Color.fromARGB(255, 187, 187, 187);
-const Color bgLight1 = Color(0xff333646);
-const Color bgDark1 = Color.fromARGB(255, 47, 45, 57);
+const Color bgLight1 = Color.fromARGB(255, 17, 17, 25);
+const Color bgDark1 = Color.fromARGB(255, 17, 17, 25);
 const Color yellowSecondary = Color.fromARGB(255, 255, 175, 63);
+const Color greenSecondary = Color.fromARGB(255, 0, 255, 180);
 const Color bgLight2 = Colors.blueGrey;
+
+const Color darkBlack = Color.fromARGB(255, 12, 12, 20);
+const Color lightBlack = Color.fromARGB(255, 23, 23, 28);
 
 const FontWeight lightFontWeight = FontWeight.w100;
 const FontWeight mediumFontWeight = FontWeight.w500;
@@ -26,15 +30,49 @@ BoxDecoration kHeaderDecoration = const BoxDecoration(
   //borderRadius: BorderRadius.circular(100),
 );
 
-const LinearGradient kTextGradient = LinearGradient(
+const LinearGradient kOrangeGradient = LinearGradient(
   colors: [
-    Color(0xFFFCD34D), // from-[#fcd34d]
-    Color(0xFFFBBF24), // via-[#fbbf24]
-    Color(0xFFF59E0B), // to-[#f59e0b]
+    Color.fromARGB(255, 255, 175, 63),
+    Color.fromARGB(255, 255, 175, 63),
+    Color.fromARGB(255, 255, 201, 38),
   ],
   begin: Alignment.centerLeft,
   end: Alignment.centerRight,
 );
+
+const LinearGradient kGreenGradient = LinearGradient(
+  colors: [
+    Color.fromARGB(255, 0, 210, 135),
+    Color.fromARGB(255, 0, 210, 135),
+    Color.fromARGB(255, 0, 210, 180),
+  ],
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+);
+
+class GradientText extends StatelessWidget {
+  const GradientText(
+    this.text, {
+    super.key,
+    required this.gradient,
+    this.style,
+  });
+
+  final String text;
+  final TextStyle? style;
+  final Gradient gradient;
+
+  @override
+  Widget build(BuildContext context) {
+    return ShaderMask(
+      blendMode: BlendMode.srcIn,
+      shaderCallback: (bounds) => gradient.createShader(
+        Rect.fromLTWH(0, 0, bounds.width, bounds.height),
+      ),
+      child: Text(text, style: style),
+    );
+  }
+}
 
 List<String> navTitles = [
   "Home",

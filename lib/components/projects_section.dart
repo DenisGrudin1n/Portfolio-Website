@@ -157,7 +157,7 @@ class HoverableProjectCardState extends State<HoverableProjectCard> {
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
       child: AnimatedOpacity(
-        opacity: _isHovered ? 0.85 : 1.0,
+        opacity: _isHovered ? 0.9 : 1.0,
         duration: const Duration(milliseconds: 30),
         child: ProjectCard(project: widget.project),
       ),

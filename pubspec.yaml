@@ -42,6 +42,8 @@ dependencies:
   file_saver: ^0.2.12
   animated_widgets: ^1.1.0
   visibility_detector: ^0.4.0+2
+  outline_gradient_button: ^2.0.1+1
+  gradient_elevated_button: ^1.0.0
 
 dev_dependencies:
   flutter_test:

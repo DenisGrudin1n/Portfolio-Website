@@ -11,11 +11,11 @@ class SiteLogo extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: const Text(
-        "Portfolio",
+        "DG.DEV",
         style: TextStyle(
-          fontSize: 22,
+          fontSize: 20,
           fontWeight: boldFontWeight,
-          color: yellowSecondary,
+          color: greenSecondary,
         ),
       ),
     );
