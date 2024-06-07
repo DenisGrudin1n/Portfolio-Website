@@ -122,7 +122,7 @@ class ProjectsSectionState extends State<ProjectsSection>
                     scale: 1.2,
                     child: Padding(
                       padding: const EdgeInsets.fromLTRB(35, 35, 35, 55),
-                      child: ProjectCard(
+                      child: HoverableProjectCard(
                         project: projects[i],
                       ),
                     ),
@@ -131,6 +131,35 @@ class ProjectsSectionState extends State<ProjectsSection>
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class HoverableProjectCard extends StatefulWidget {
+  final ProjectModel project;
+
+  const HoverableProjectCard({
+    Key? key,
+    required this.project,
+  }) : super(key: key);
+
+  @override
+  HoverableProjectCardState createState() => HoverableProjectCardState();
+}
+
+class HoverableProjectCardState extends State<HoverableProjectCard> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedOpacity(
+        opacity: _isHovered ? 0.85 : 1.0,
+        duration: const Duration(milliseconds: 30),
+        child: ProjectCard(project: widget.project),
       ),
     );
   }
