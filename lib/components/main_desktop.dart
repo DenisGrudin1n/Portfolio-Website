@@ -110,13 +110,16 @@ class MainDesktopState extends State<MainDesktop>
                   ],
                   child: Opacity(
                     opacity: isTitleVisible ? opacityAnimation.value : 0,
-                    child: const Text(
-                      "Flutter Mobile\nDeveloper",
-                      style: TextStyle(
-                        color: kLight,
-                        fontWeight: boldFontWeight,
-                        fontSize: 60,
-                        height: 1.1,
+                    child: const MouseRegion(
+                      cursor: SystemMouseCursors.text,
+                      child: Text(
+                        "Flutter Mobile\nDeveloper",
+                        style: TextStyle(
+                          color: kLight,
+                          fontWeight: boldFontWeight,
+                          fontSize: 60,
+                          height: 1.1,
+                        ),
                       ),
                     ),
                   ),
@@ -141,13 +144,16 @@ class MainDesktopState extends State<MainDesktop>
                   ],
                   child: Opacity(
                     opacity: isTextVisible ? opacityAnimation.value : 0,
-                    child: const Text(
-                      "Hi, I`m Denis. A passionate mobile developer\nfrom Uzhhgorod, Ukraine.\n",
-                      style: TextStyle(
-                        color: kLight,
-                        fontWeight: mediumFontWeight,
-                        fontSize: 20,
-                        height: 1.7,
+                    child: const MouseRegion(
+                      cursor: SystemMouseCursors.text,
+                      child: Text(
+                        "Hi, I`m Denis. A passionate mobile developer\nfrom Uzhhgorod, Ukraine.\n",
+                        style: TextStyle(
+                          color: kLight,
+                          fontWeight: mediumFontWeight,
+                          fontSize: 20,
+                          height: 1.7,
+                        ),
                       ),
                     ),
                   ),

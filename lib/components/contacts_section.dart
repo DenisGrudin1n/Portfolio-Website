@@ -108,12 +108,15 @@ class _ContactsSectionState extends State<ContactsSection>
                 opacity: isTitleVisible
                     ? pow(opacityAnimation.value, 5).toDouble()
                     : 0,
-                child: const Text(
-                  "Contacts",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: boldFontWeight,
-                    color: kLight,
+                child: const MouseRegion(
+                  cursor: SystemMouseCursors.text,
+                  child: Text(
+                    "Contacts",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: boldFontWeight,
+                      color: kLight,
+                    ),
                   ),
                 ),
               ),
@@ -173,25 +176,31 @@ class _ContactsSectionState extends State<ContactsSection>
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          CircleAvatar(
-            radius: 30,
-            backgroundColor: kLight,
-            child: Image.asset(
-              item["icon"]!,
-              height: 32.5,
-              width: 32.5,
+          InkWell(
+            onTap: item["link"] != null ? () => launchUrl(item["link"]!) : null,
+            child: CircleAvatar(
+              radius: 30,
+              backgroundColor: kLight,
+              child: Image.asset(
+                item["icon"]!,
+                height: 32.5,
+                width: 32.5,
+              ),
             ),
           ),
           const SizedBox(width: 10),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                item["title"]!,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: boldFontWeight,
-                  color: kLight,
+              MouseRegion(
+                cursor: SystemMouseCursors.text,
+                child: Text(
+                  item["title"]!,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: boldFontWeight,
+                    color: kLight,
+                  ),
                 ),
               ),
               InkWell(

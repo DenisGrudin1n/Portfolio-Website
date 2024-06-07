@@ -160,13 +160,16 @@ class MainMobileState extends State<MainMobile>
                 ],
                 child: Opacity(
                   opacity: isTitleVisible ? opacityAnimation.value : 0,
-                  child: const Text(
-                    "Flutter Mobile",
-                    style: TextStyle(
-                      color: kLight,
-                      fontWeight: boldFontWeight,
-                      fontSize: 50,
-                      height: 1.1,
+                  child: const MouseRegion(
+                    cursor: SystemMouseCursors.text,
+                    child: Text(
+                      "Flutter Mobile",
+                      style: TextStyle(
+                        color: kLight,
+                        fontWeight: boldFontWeight,
+                        fontSize: 50,
+                        height: 1.1,
+                      ),
                     ),
                   ),
                 ),
@@ -188,13 +191,16 @@ class MainMobileState extends State<MainMobile>
                 ],
                 child: Opacity(
                   opacity: isSubtitleVisible ? opacityAnimation.value : 0,
-                  child: const Text(
-                    "Developer",
-                    style: TextStyle(
-                      color: kLight,
-                      fontWeight: boldFontWeight,
-                      fontSize: 50,
-                      height: 1.1,
+                  child: const MouseRegion(
+                    cursor: SystemMouseCursors.text,
+                    child: Text(
+                      "Developer",
+                      style: TextStyle(
+                        color: kLight,
+                        fontWeight: boldFontWeight,
+                        fontSize: 50,
+                        height: 1.1,
+                      ),
                     ),
                   ),
                 ),
@@ -219,13 +225,16 @@ class MainMobileState extends State<MainMobile>
                 ],
                 child: Opacity(
                   opacity: isTextVisible ? opacityAnimation.value : 0,
-                  child: const Text(
-                    "Hi, I`m Denis. A passionate mobile developer",
-                    style: TextStyle(
-                      color: kLight,
-                      fontWeight: mediumFontWeight,
-                      fontSize: 22,
-                      height: 1.7,
+                  child: const MouseRegion(
+                    cursor: SystemMouseCursors.text,
+                    child: Text(
+                      "Hi, I`m Denis. A passionate mobile developer",
+                      style: TextStyle(
+                        color: kLight,
+                        fontWeight: mediumFontWeight,
+                        fontSize: 22,
+                        height: 1.7,
+                      ),
                     ),
                   ),
                 ),
@@ -247,13 +256,16 @@ class MainMobileState extends State<MainMobile>
                 ],
                 child: Opacity(
                   opacity: isTextVisible ? opacityAnimation.value : 0,
-                  child: const Text(
-                    "from Uzhhgorod, Ukraine.",
-                    style: TextStyle(
-                      color: kLight,
-                      fontWeight: mediumFontWeight,
-                      fontSize: 22,
-                      height: 1.7,
+                  child: const MouseRegion(
+                    cursor: SystemMouseCursors.text,
+                    child: Text(
+                      "from Uzhhgorod, Ukraine.",
+                      style: TextStyle(
+                        color: kLight,
+                        fontWeight: mediumFontWeight,
+                        fontSize: 22,
+                        height: 1.7,
+                      ),
                     ),
                   ),
                 ),

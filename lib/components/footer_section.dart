@@ -14,23 +14,29 @@ class FooterSection extends StatelessWidget {
         runSpacing: 10,
         alignment: WrapAlignment.spaceEvenly,
         children: [
-          Text(
-            "Copyright © 2024. All rights are reserved",
-            style: TextStyle(
-              fontWeight: mediumFontWeight,
-              fontSize: 18,
-              color: kLightSecondary,
+          MouseRegion(
+            cursor: SystemMouseCursors.text,
+            child: Text(
+              "Copyright © 2024. All rights are reserved",
+              style: TextStyle(
+                fontWeight: mediumFontWeight,
+                fontSize: 18,
+                color: kLightSecondary,
+              ),
             ),
           ),
           SizedBox(
             width: 325,
           ),
-          Text(
-            "Developed by Denis Grudinin",
-            style: TextStyle(
-              fontWeight: mediumFontWeight,
-              fontSize: 18,
-              color: kLightSecondary,
+          MouseRegion(
+            cursor: SystemMouseCursors.text,
+            child: Text(
+              "Developed by Denis Grudinin",
+              style: TextStyle(
+                fontWeight: mediumFontWeight,
+                fontSize: 18,
+                color: kLightSecondary,
+              ),
             ),
           ),
         ],

@@ -91,12 +91,15 @@ class ProjectsSectionState extends State<ProjectsSection>
               ],
               child: Opacity(
                 opacity: pow(opacityAnimation.value, 5).toDouble(),
-                child: const Text(
-                  "Projects",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: boldFontWeight,
-                    color: kLight,
+                child: const MouseRegion(
+                  cursor: SystemMouseCursors.text,
+                  child: Text(
+                    "Projects",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: boldFontWeight,
+                      color: kLight,
+                    ),
                   ),
                 ),
               ),

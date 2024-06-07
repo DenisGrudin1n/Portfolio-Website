@@ -102,12 +102,15 @@ class _SkillsSectionState extends State<SkillsSection>
                 opacity: isTitleVisible
                     ? pow(opacityAnimation.value, 5).toDouble()
                     : 0,
-                child: const Text(
-                  "Skills",
-                  style: TextStyle(
-                    fontSize: 30,
-                    fontWeight: boldFontWeight,
-                    color: kLight,
+                child: const MouseRegion(
+                  cursor: SystemMouseCursors.text,
+                  child: Text(
+                    "Skills",
+                    style: TextStyle(
+                      fontSize: 30,
+                      fontWeight: boldFontWeight,
+                      color: kLight,
+                    ),
                   ),
                 ),
               ),
@@ -136,12 +139,15 @@ class _SkillsSectionState extends State<SkillsSection>
                     children: [
                       const Padding(
                         padding: EdgeInsets.only(top: 35),
-                        child: Text(
-                          "Technologies",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: boldFontWeight,
-                            color: kLight,
+                        child: MouseRegion(
+                          cursor: SystemMouseCursors.text,
+                          child: Text(
+                            "Technologies",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: boldFontWeight,
+                              color: kLight,
+                            ),
                           ),
                         ),
                       ),
@@ -197,12 +203,15 @@ class _SkillsSectionState extends State<SkillsSection>
                     children: [
                       const Padding(
                         padding: EdgeInsets.only(top: 35),
-                        child: Text(
-                          "Tools",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: boldFontWeight,
-                            color: kLight,
+                        child: MouseRegion(
+                          cursor: SystemMouseCursors.text,
+                          child: Text(
+                            "Tools",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: boldFontWeight,
+                              color: kLight,
+                            ),
                           ),
                         ),
                       ),
@@ -258,12 +267,15 @@ class _SkillsSectionState extends State<SkillsSection>
                     children: [
                       const Padding(
                         padding: EdgeInsets.only(top: 35),
-                        child: Text(
-                          "Platforms",
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: boldFontWeight,
-                            color: kLight,
+                        child: MouseRegion(
+                          cursor: SystemMouseCursors.text,
+                          child: Text(
+                            "Platforms",
+                            style: TextStyle(
+                              fontSize: 24,
+                              fontWeight: boldFontWeight,
+                              color: kLight,
+                            ),
                           ),
                         ),
                       ),
