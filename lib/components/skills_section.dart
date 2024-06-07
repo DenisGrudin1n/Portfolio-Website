@@ -21,6 +21,7 @@ class _SkillsSectionState extends State<SkillsSection>
   bool isSkillsContainer1Visible = false;
   bool isSkillsContainer2Visible = false;
   bool isSkillsContainer3Visible = false;
+  bool isHovered = false;
 
   @override
   void initState() {
@@ -155,90 +156,23 @@ class _SkillsSectionState extends State<SkillsSection>
                               if (i == technologyItems.length - 1)
                                 Padding(
                                   padding: const EdgeInsets.only(left: 38),
-                                  child: Column(
-                                    children: [
-                                      technologyItems[i]["img"].endsWith('.svg')
-                                          ? SvgPicture.asset(
-                                              technologyItems[i]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            )
-                                          : Image.asset(
-                                              technologyItems[i]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            ),
-                                      const SizedBox(
-                                        height: heightBetweenSkillIconAndTitle,
-                                      ),
-                                      Text(
-                                        technologyItems[i]["title"],
-                                        style: const TextStyle(
-                                          fontSize: skillsTitleTextSize,
-                                          fontWeight: lightFontWeight,
-                                          color: kLight,
-                                        ),
-                                      ),
-                                    ],
+                                  child: HoverableIcon(
+                                    imgPath: technologyItems[i]["img"],
+                                    title: technologyItems[i]["title"],
                                   ),
                                 ),
                               if (i != technologyItems.length - 1)
                                 Expanded(
-                                  child: Column(
-                                    children: [
-                                      technologyItems[i]["img"].endsWith('.svg')
-                                          ? SvgPicture.asset(
-                                              technologyItems[i]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            )
-                                          : Image.asset(
-                                              technologyItems[i]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            ),
-                                      const SizedBox(
-                                        height: heightBetweenSkillIconAndTitle,
-                                      ),
-                                      Text(
-                                        technologyItems[i]["title"],
-                                        style: const TextStyle(
-                                          fontSize: skillsTitleTextSize,
-                                          fontWeight: lightFontWeight,
-                                          color: kLight,
-                                        ),
-                                      ),
-                                    ],
+                                  child: HoverableIcon(
+                                    imgPath: technologyItems[i]["img"],
+                                    title: technologyItems[i]["title"],
                                   ),
                                 ),
                               if (i < technologyItems.length - 1)
                                 Expanded(
-                                  child: Column(
-                                    children: [
-                                      technologyItems[i + 1]["img"]
-                                              .endsWith('.svg')
-                                          ? SvgPicture.asset(
-                                              technologyItems[i + 1]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            )
-                                          : Image.asset(
-                                              technologyItems[i + 1]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            ),
-                                      const SizedBox(
-                                        height: heightBetweenSkillIconAndTitle,
-                                      ),
-                                      Text(
-                                        technologyItems[i + 1]["title"],
-                                        style: const TextStyle(
-                                          fontSize: skillsTitleTextSize,
-                                          fontWeight: lightFontWeight,
-                                          color: kLight,
-                                        ),
-                                      ),
-                                    ],
+                                  child: HoverableIcon(
+                                    imgPath: technologyItems[i + 1]["img"],
+                                    title: technologyItems[i + 1]["title"],
                                   ),
                                 ),
                             ],
@@ -283,89 +217,23 @@ class _SkillsSectionState extends State<SkillsSection>
                               if (i == toolItems.length - 1)
                                 Padding(
                                   padding: const EdgeInsets.only(left: 38),
-                                  child: Column(
-                                    children: [
-                                      toolItems[i]["img"].endsWith('.svg')
-                                          ? SvgPicture.asset(
-                                              toolItems[i]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            )
-                                          : Image.asset(
-                                              toolItems[i]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            ),
-                                      const SizedBox(
-                                        height: heightBetweenSkillIconAndTitle,
-                                      ),
-                                      Text(
-                                        toolItems[i]["title"],
-                                        style: const TextStyle(
-                                          fontSize: skillsTitleTextSize,
-                                          fontWeight: lightFontWeight,
-                                          color: kLight,
-                                        ),
-                                      ),
-                                    ],
+                                  child: HoverableIcon(
+                                    imgPath: toolItems[i]["img"],
+                                    title: toolItems[i]["title"],
                                   ),
                                 ),
                               if (i != toolItems.length - 1)
                                 Expanded(
-                                  child: Column(
-                                    children: [
-                                      toolItems[i]["img"].endsWith('.svg')
-                                          ? SvgPicture.asset(
-                                              toolItems[i]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            )
-                                          : Image.asset(
-                                              toolItems[i]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            ),
-                                      const SizedBox(
-                                        height: heightBetweenSkillIconAndTitle,
-                                      ),
-                                      Text(
-                                        toolItems[i]["title"],
-                                        style: const TextStyle(
-                                          fontSize: skillsTitleTextSize,
-                                          fontWeight: lightFontWeight,
-                                          color: kLight,
-                                        ),
-                                      ),
-                                    ],
+                                  child: HoverableIcon(
+                                    imgPath: toolItems[i]["img"],
+                                    title: toolItems[i]["title"],
                                   ),
                                 ),
                               if (i < toolItems.length - 1)
                                 Expanded(
-                                  child: Column(
-                                    children: [
-                                      toolItems[i + 1]["img"].endsWith('.svg')
-                                          ? SvgPicture.asset(
-                                              toolItems[i + 1]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            )
-                                          : Image.asset(
-                                              toolItems[i + 1]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            ),
-                                      const SizedBox(
-                                        height: heightBetweenSkillIconAndTitle,
-                                      ),
-                                      Text(
-                                        toolItems[i + 1]["title"],
-                                        style: const TextStyle(
-                                          fontSize: skillsTitleTextSize,
-                                          fontWeight: lightFontWeight,
-                                          color: kLight,
-                                        ),
-                                      ),
-                                    ],
+                                  child: HoverableIcon(
+                                    imgPath: toolItems[i + 1]["img"],
+                                    title: toolItems[i + 1]["title"],
                                   ),
                                 ),
                             ],
@@ -410,90 +278,23 @@ class _SkillsSectionState extends State<SkillsSection>
                               if (i == platformItems.length - 1)
                                 Padding(
                                   padding: const EdgeInsets.only(left: 38),
-                                  child: Column(
-                                    children: [
-                                      platformItems[i]["img"].endsWith('.svg')
-                                          ? SvgPicture.asset(
-                                              platformItems[i]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            )
-                                          : Image.asset(
-                                              platformItems[i]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            ),
-                                      const SizedBox(
-                                        height: heightBetweenSkillIconAndTitle,
-                                      ),
-                                      Text(
-                                        platformItems[i]["title"],
-                                        style: const TextStyle(
-                                          fontSize: skillsTitleTextSize,
-                                          fontWeight: lightFontWeight,
-                                          color: kLight,
-                                        ),
-                                      ),
-                                    ],
+                                  child: HoverableIcon(
+                                    imgPath: platformItems[i]["img"],
+                                    title: platformItems[i]["title"],
                                   ),
                                 ),
                               if (i != platformItems.length - 1)
                                 Expanded(
-                                  child: Column(
-                                    children: [
-                                      platformItems[i]["img"].endsWith('.svg')
-                                          ? SvgPicture.asset(
-                                              platformItems[i]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            )
-                                          : Image.asset(
-                                              platformItems[i]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            ),
-                                      const SizedBox(
-                                        height: heightBetweenSkillIconAndTitle,
-                                      ),
-                                      Text(
-                                        platformItems[i]["title"],
-                                        style: const TextStyle(
-                                          fontSize: skillsTitleTextSize,
-                                          fontWeight: lightFontWeight,
-                                          color: kLight,
-                                        ),
-                                      ),
-                                    ],
+                                  child: HoverableIcon(
+                                    imgPath: platformItems[i]["img"],
+                                    title: platformItems[i]["title"],
                                   ),
                                 ),
                               if (i < platformItems.length - 1)
                                 Expanded(
-                                  child: Column(
-                                    children: [
-                                      platformItems[i + 1]["img"]
-                                              .endsWith('.svg')
-                                          ? SvgPicture.asset(
-                                              platformItems[i + 1]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            )
-                                          : Image.asset(
-                                              platformItems[i + 1]["img"],
-                                              height: skillsIconSize,
-                                              width: skillsIconSize,
-                                            ),
-                                      const SizedBox(
-                                        height: heightBetweenSkillIconAndTitle,
-                                      ),
-                                      Text(
-                                        platformItems[i + 1]["title"],
-                                        style: const TextStyle(
-                                          fontSize: skillsTitleTextSize,
-                                          fontWeight: lightFontWeight,
-                                          color: kLight,
-                                        ),
-                                      ),
-                                    ],
+                                  child: HoverableIcon(
+                                    imgPath: platformItems[i + 1]["img"],
+                                    title: platformItems[i + 1]["title"],
                                   ),
                                 ),
                             ],
@@ -506,6 +307,63 @@ class _SkillsSectionState extends State<SkillsSection>
             ],
           ),
         ],
+      ),
+    );
+  }
+}
+
+class HoverableIcon extends StatefulWidget {
+  final String imgPath;
+  final String title;
+
+  const HoverableIcon({
+    Key? key,
+    required this.imgPath,
+    required this.title,
+  }) : super(key: key);
+
+  @override
+  HoverableIconState createState() => HoverableIconState();
+}
+
+class HoverableIconState extends State<HoverableIcon> {
+  bool _isHovered = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      onEnter: (_) => setState(() => _isHovered = true),
+      onExit: (_) => setState(() => _isHovered = false),
+      child: AnimatedScale(
+        scale: _isHovered ? 1.1 : 1.0,
+        duration: const Duration(milliseconds: 30),
+        child: Column(
+          children: [
+            widget.imgPath.endsWith('.svg')
+                ? SvgPicture.asset(
+                    widget.imgPath,
+                    height: skillsIconSize,
+                    width: skillsIconSize,
+                  )
+                : Image.asset(
+                    widget.imgPath,
+                    height: skillsIconSize,
+                    width: skillsIconSize,
+                  ),
+            const SizedBox(
+              height: heightBetweenSkillIconAndTitle,
+            ),
+            Text(
+              widget.title,
+              style: const TextStyle(
+                fontSize: skillsTitleTextSize,
+                fontWeight: lightFontWeight,
+                color: kLight,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
