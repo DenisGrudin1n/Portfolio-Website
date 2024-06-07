@@ -26,6 +26,16 @@ BoxDecoration kHeaderDecoration = const BoxDecoration(
   //borderRadius: BorderRadius.circular(100),
 );
 
+const LinearGradient kTextGradient = LinearGradient(
+  colors: [
+    Color(0xFFFCD34D), // from-[#fcd34d]
+    Color(0xFFFBBF24), // via-[#fbbf24]
+    Color(0xFFF59E0B), // to-[#f59e0b]
+  ],
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+);
+
 List<String> navTitles = [
   "Home",
   "About",

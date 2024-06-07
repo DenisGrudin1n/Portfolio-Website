@@ -71,7 +71,7 @@ class ProjectsSectionState extends State<ProjectsSection>
   Widget build(BuildContext context) {
     return Container(
       width: double.maxFinite,
-      padding: const EdgeInsets.fromLTRB(25, 50, 25, 100),
+      padding: const EdgeInsets.fromLTRB(25, 50, 25, 45),
       child: Column(
         children: [
           // Projects title
@@ -115,8 +115,14 @@ class ProjectsSectionState extends State<ProjectsSection>
                   duration: const Duration(milliseconds: 300),
                   enabled: isProjectCardVisibleList[i],
                   values: const [0.0, 1.0],
-                  child: ProjectCard(
-                    project: projects[i],
+                  child: Transform.scale(
+                    scale: 1.2,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(35, 35, 35, 55),
+                      child: ProjectCard(
+                        project: projects[i],
+                      ),
+                    ),
                   ),
                 ),
             ],

@@ -73,7 +73,7 @@ class _HeaderDesktopState extends State<HeaderDesktop>
     return Container(
       height: 60,
       width: double.maxFinite,
-      padding: const EdgeInsets.only(left: 20, right: 20),
+      padding: const EdgeInsets.only(left: 100, right: 100),
       decoration: kHeaderDecoration,
       child: Row(
         children: [
@@ -105,19 +105,16 @@ class _HeaderDesktopState extends State<HeaderDesktop>
                 Offset(500, 0),
                 Offset(0, 0),
               ],
-              child: Padding(
-                padding: const EdgeInsets.only(right: 20),
-                child: TextButton(
-                  onPressed: () {
-                    widget.onNavMenuTap(i);
-                  },
-                  child: Text(
-                    navTitles[i],
-                    style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: mediumFontWeight,
-                        color: kLight),
-                  ),
+              child: TextButton(
+                onPressed: () {
+                  widget.onNavMenuTap(i);
+                },
+                child: Text(
+                  navTitles[i],
+                  style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: mediumFontWeight,
+                      color: kLight),
                 ),
               ),
             ),
