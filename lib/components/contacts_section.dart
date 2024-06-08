@@ -53,7 +53,7 @@ class _ContactsSectionState extends State<ContactsSection>
       isTitleVisible = true;
       _animationController.forward();
     });
-    await Future.delayed(const Duration(milliseconds: 150));
+    await Future.delayed(const Duration(milliseconds: 500));
     setState(() {
       isContactItem1Visible = true;
       _animationController.forward();
@@ -97,26 +97,19 @@ class _ContactsSectionState extends State<ContactsSection>
                 startAnimations();
               }
             },
-            child: TranslationAnimatedWidget(
-              duration: const Duration(milliseconds: 300),
-              enabled: isTitleVisible,
-              values: const [
-                Offset(0, 0),
-                Offset(0, 0),
-              ],
-              child: Opacity(
-                opacity: isTitleVisible
-                    ? pow(opacityAnimation.value, 5).toDouble()
-                    : 0,
-                child: const MouseRegion(
-                  cursor: SystemMouseCursors.text,
-                  child: Text(
-                    "Contacts",
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: boldFontWeight,
-                      color: kLight,
-                    ),
+            child: AnimatedOpacity(
+              duration: const Duration(milliseconds: 150),
+              opacity: isTitleVisible
+                  ? pow(opacityAnimation.value, 5).toDouble()
+                  : 0,
+              child: const MouseRegion(
+                cursor: SystemMouseCursors.text,
+                child: Text(
+                  "Contacts",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: boldFontWeight,
+                    color: kLight,
                   ),
                 ),
               ),

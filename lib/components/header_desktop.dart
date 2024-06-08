@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:animated_widgets/animated_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolioapp/components/site_logo.dart';
@@ -84,37 +86,49 @@ class _HeaderDesktopState extends State<HeaderDesktop>
                 startAnimations();
               }
             },
-            child: TranslationAnimatedWidget(
-              duration: const Duration(milliseconds: 350),
-              enabled: isLogoVisible,
-              values: const [
-                Offset(-200, 0),
-                Offset(0, 0),
-              ],
-              child: SiteLogo(
-                onTap: widget.onLogoTap,
+            child: AnimatedOpacity(
+              duration: const Duration(milliseconds: 200),
+              opacity: isLogoVisible
+                  ? pow(opacityAnimation.value, 0.05).toDouble()
+                  : 0,
+              child: TranslationAnimatedWidget(
+                duration: const Duration(milliseconds: 300),
+                enabled: isLogoVisible,
+                values: const [
+                  Offset(-200, 0),
+                  Offset(0, 0),
+                ],
+                child: SiteLogo(
+                  onTap: widget.onLogoTap,
+                ),
               ),
             ),
           ),
           const Spacer(),
           for (int i = 0; i < navTitles.length; i++)
-            TranslationAnimatedWidget(
-              duration: const Duration(milliseconds: 350),
-              enabled: isNavTitlesVisibleList[i],
-              values: const [
-                Offset(500, 0),
-                Offset(0, 0),
-              ],
-              child: TextButton(
-                onPressed: () {
-                  widget.onNavMenuTap(i);
-                },
-                child: Text(
-                  navTitles[i],
-                  style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: mediumFontWeight,
-                      color: kLight),
+            AnimatedOpacity(
+              duration: const Duration(milliseconds: 150),
+              opacity: areNavTitlesVisible
+                  ? pow(opacityAnimation.value, 0.01).toDouble()
+                  : 0,
+              child: TranslationAnimatedWidget(
+                duration: const Duration(milliseconds: 300),
+                enabled: isNavTitlesVisibleList[i],
+                values: const [
+                  Offset(500, 0),
+                  Offset(0, 0),
+                ],
+                child: TextButton(
+                  onPressed: () {
+                    widget.onNavMenuTap(i);
+                  },
+                  child: Text(
+                    navTitles[i],
+                    style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: mediumFontWeight,
+                        color: kLight),
+                  ),
                 ),
               ),
             ),

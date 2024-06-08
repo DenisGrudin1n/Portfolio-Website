@@ -47,11 +47,12 @@ class AboutMobileState extends State<AboutMobile>
 
   void startAnimations() async {
     setState(() {
-      isImageVisible = true;
+      isTitleVisible = true;
       animationController.forward();
     });
+    await Future.delayed(const Duration(milliseconds: 300));
     setState(() {
-      isTitleVisible = true;
+      isImageVisible = true;
       animationController.forward();
     });
     await Future.delayed(const Duration(milliseconds: 300));
@@ -81,26 +82,19 @@ class AboutMobileState extends State<AboutMobile>
                 startAnimations();
               }
             },
-            child: TranslationAnimatedWidget(
-              duration: const Duration(milliseconds: 300),
-              enabled: isTitleVisible,
-              values: const [
-                Offset(0, 0),
-                Offset(0, 0),
-              ],
-              child: Opacity(
-                opacity: isTitleVisible
-                    ? pow(opacityAnimation.value, 5).toDouble()
-                    : 0,
-                child: const MouseRegion(
-                  cursor: SystemMouseCursors.text,
-                  child: Text(
-                    "About Me",
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: boldFontWeight,
-                      color: kLight,
-                    ),
+            child: AnimatedOpacity(
+              duration: const Duration(milliseconds: 400),
+              opacity: isTitleVisible
+                  ? pow(opacityAnimation.value, 5).toDouble()
+                  : 0,
+              child: const MouseRegion(
+                cursor: SystemMouseCursors.text,
+                child: Text(
+                  "About Me",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: boldFontWeight,
+                    color: kLight,
                   ),
                 ),
               ),

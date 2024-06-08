@@ -106,7 +106,7 @@ class _HomePageState extends State<HomePage> {
                                 )),
                       SizedBox(
                           width: double.maxFinite,
-                          child: constraints.maxWidth >= kMinAboutWidth
+                          child: constraints.maxWidth >= kMinDesktopWidth
                               ? AboutDesktop(
                                   key: navbarKeys[1],
                                 )

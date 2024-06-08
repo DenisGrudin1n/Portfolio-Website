@@ -36,7 +36,7 @@ class ProjectsSectionState extends State<ProjectsSection>
         curve: Curves.easeInOut,
       ),
     );
-    delayValues = List.generate(projects.length, (index) => index * 0.3);
+    delayValues = List.generate(projects.length, (index) => index * 0.2);
     for (int i = 0; i < projects.length; i++) {
       isProjectCardVisibleList.add(false);
     }
@@ -82,24 +82,17 @@ class ProjectsSectionState extends State<ProjectsSection>
                 startAnimations();
               }
             },
-            child: TranslationAnimatedWidget(
-              duration: const Duration(milliseconds: 300),
-              enabled: isTitleVisible,
-              values: const [
-                Offset(0, 0),
-                Offset(0, 0),
-              ],
-              child: Opacity(
-                opacity: pow(opacityAnimation.value, 5).toDouble(),
-                child: const MouseRegion(
-                  cursor: SystemMouseCursors.text,
-                  child: Text(
-                    "Projects",
-                    style: TextStyle(
-                      fontSize: 30,
-                      fontWeight: boldFontWeight,
-                      color: kLight,
-                    ),
+            child: AnimatedOpacity(
+              duration: const Duration(milliseconds: 200),
+              opacity: pow(opacityAnimation.value, 5).toDouble(),
+              child: const MouseRegion(
+                cursor: SystemMouseCursors.text,
+                child: Text(
+                  "Projects",
+                  style: TextStyle(
+                    fontSize: 30,
+                    fontWeight: boldFontWeight,
+                    color: kLight,
                   ),
                 ),
               ),

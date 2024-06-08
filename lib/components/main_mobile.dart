@@ -32,7 +32,7 @@ class MainMobileState extends State<MainMobile>
     super.initState();
     animationController = AnimationController(
       vsync: this,
-      duration: const Duration(milliseconds: 1000),
+      duration: const Duration(milliseconds: 800),
     );
     opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
       CurvedAnimation(
@@ -102,40 +102,25 @@ class MainMobileState extends State<MainMobile>
                   startAnimations();
                 }
               },
-              child: TranslationAnimatedWidget(
-                enabled: isAvatarVisible,
+              child: AnimatedOpacity(
                 duration: const Duration(milliseconds: 200),
-                values: const [
-                  Offset(0, 0), // Offsets for animation start
-                  Offset(0, 0) // Offsets for animation end
-                ],
-                child: Opacity(
-                  opacity: isAvatarVisible
-                      ? pow(opacityAnimation.value, 0.15).toDouble()
-                      : 0,
-                  child: CircleAvatar(
-                    radius: screenWidth / 6,
-                    child: ClipOval(
-                      child: Image.network(
-                        "assets/avatars/me.png",
-                        fit: BoxFit.cover,
-                        width: screenWidth / 3,
-                        height: screenWidth / 3,
-                        loadingBuilder: (BuildContext context, Widget child,
-                            ImageChunkEvent? loadingProgress) {
-                          if (loadingProgress == null) {
-                            return child;
-                          } else {
-                            return const SizedBox
-                                .shrink(); // Return an empty container while loading
-                          }
-                        },
-                        errorBuilder: (BuildContext context, Object error,
-                            StackTrace? stackTrace) {
-                          return const SizedBox
-                              .shrink(); // Return an empty container if there's an error
-                        },
-                      ),
+                opacity: isAvatarVisible
+                    ? pow(opacityAnimation.value, 0.1).toDouble()
+                    : 0,
+                child: CircleAvatar(
+                  backgroundColor: Colors.transparent,
+                  radius: screenWidth / 6,
+                  child: ClipOval(
+                    child: Image.asset(
+                      "assets/avatars/me.jpg",
+                      fit: BoxFit.cover,
+                      width: screenWidth / 3,
+                      height: screenWidth / 3,
+                      errorBuilder: (BuildContext context, Object error,
+                          StackTrace? stackTrace) {
+                        return const SizedBox
+                            .shrink(); // Return an empty container if there's an error
+                      },
                     ),
                   ),
                 ),

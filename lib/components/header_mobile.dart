@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:animated_widgets/animated_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolioapp/components/site_logo.dart';
 import 'package:portfolioapp/constants/constants.dart';
@@ -72,18 +71,13 @@ class _HeaderMobileState extends State<HeaderMobile>
                 startAnimations();
               }
             },
-            child: TranslationAnimatedWidget(
-              duration: const Duration(milliseconds: 50),
-              enabled: isLogoVisible,
-              values: const [
-                Offset(0, 0),
-                Offset(0, 0),
-              ],
-              child: Opacity(
-                opacity: pow(opacityAnimation.value, 5).toDouble(),
-                child: SiteLogo(
-                  onTap: widget.onLogoTap,
-                ),
+            child: AnimatedOpacity(
+              duration: const Duration(milliseconds: 100),
+              opacity: isLogoVisible
+                  ? pow(opacityAnimation.value, 0.05).toDouble()
+                  : 0,
+              child: SiteLogo(
+                onTap: widget.onLogoTap,
               ),
             ),
           ),
@@ -95,21 +89,16 @@ class _HeaderMobileState extends State<HeaderMobile>
                 startAnimations();
               }
             },
-            child: TranslationAnimatedWidget(
-              duration: const Duration(milliseconds: 50),
-              enabled: isDrawerIconVisible,
-              values: const [
-                Offset(0, 0),
-                Offset(0, 0),
-              ],
-              child: Opacity(
-                opacity: pow(opacityAnimation.value, 5).toDouble(),
-                child: IconButton(
-                  onPressed: widget.onMenuTap,
-                  icon: const Icon(
-                    Icons.menu,
-                    color: kLight,
-                  ),
+            child: AnimatedOpacity(
+              duration: const Duration(milliseconds: 100),
+              opacity: isDrawerIconVisible
+                  ? pow(opacityAnimation.value, 0.05).toDouble()
+                  : 0,
+              child: IconButton(
+                onPressed: widget.onMenuTap,
+                icon: const Icon(
+                  Icons.menu,
+                  color: kLight,
                 ),
               ),
             ),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
-const double kMinDesktopWidth = 800.0;
-const double kMinAboutWidth = 950.0;
+const double kMinDesktopWidth = 950.0;
 const double kBetweenAboutWidth = 1100.0;
 
 const double skillsIconSize = 55.0;

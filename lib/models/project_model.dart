@@ -39,7 +39,7 @@ List<ProjectModel> projects = [
     ],
   ),
   ProjectModel(
-    image: 'assets/projects/portfolio4.jpg',
+    image: 'assets/projects/portfolio1.jpg',
     title: 'DG.DEV',
     subtitle:
         'DG.DEV is a personal animated and fully responsive Portfolio Website created with Flutter Web.',
