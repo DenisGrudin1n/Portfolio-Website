@@ -1,9 +1,12 @@
-### Personal Flutter developer portfolio: https://denis-grudinin.netlify.app/
+### Personal Portfolio Website made using Flutter Web: https://denis-grudinin.netlify.app/
+#
 
-![1](https://github.com/DenisGrudin1n/Portfolio-Website/assets/157652311/98aed222-7b33-4c2b-b010-3c2958e4059d)
+![11](https://github.com/DenisGrudin1n/Portfolio-Website/assets/157652311/a7e87b1f-b54f-457e-b811-1b41f74ffb22)
 
-![2](https://github.com/DenisGrudin1n/Portfolio-Website/assets/157652311/5cc69cb3-80e2-4b0c-b6a1-9faaa5788890)
+![22](https://github.com/DenisGrudin1n/Portfolio-Website/assets/157652311/8a95a77d-38bf-47c1-a94d-f4c7a46490b5)
 
-![3](https://github.com/DenisGrudin1n/Portfolio-Website/assets/157652311/c50f5a8b-a619-49af-953c-7ae927729664)
+![33](https://github.com/DenisGrudin1n/Portfolio-Website/assets/157652311/adbabfbe-c4dc-42a1-a66d-8494262c5934)
 
-![4](https://github.com/DenisGrudin1n/Portfolio-Website/assets/157652311/0bf985ae-29c4-43e5-9614-afd893fe5ee0)
+![44](https://github.com/DenisGrudin1n/Portfolio-Website/assets/157652311/139c68df-798b-4ac8-911b-085e1d4a92bd)
+
+![55](https://github.com/DenisGrudin1n/Portfolio-Website/assets/157652311/688e7e98-ced4-444a-9f95-ece797375b4f)
