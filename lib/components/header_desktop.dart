@@ -4,6 +4,8 @@ import 'package:animated_widgets/animated_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolioapp/components/site_logo.dart';
 import 'package:portfolioapp/constants/constants.dart';
+import 'package:portfolioapp/controllers/navtitles_controller.dart';
+import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class HeaderDesktop extends StatefulWidget {
@@ -72,6 +74,8 @@ class _HeaderDesktopState extends State<HeaderDesktop>
 
   @override
   Widget build(BuildContext context) {
+    final activeIndex = context.watch<NavTitlesProvider>().activeIndex;
+
     return Container(
       height: 60,
       width: double.maxFinite,
@@ -122,12 +126,21 @@ class _HeaderDesktopState extends State<HeaderDesktop>
                   onPressed: () {
                     widget.onNavMenuTap(i);
                   },
-                  child: Text(
-                    navTitles[i],
-                    style: const TextStyle(
-                        fontSize: 16,
-                        fontWeight: mediumFontWeight,
-                        color: kLight),
+                  child: ShaderMask(
+                    shaderCallback: (bounds) {
+                      return activeIndex == i
+                          ? kGreenGradient.createShader(bounds)
+                          : const LinearGradient(
+                              colors: [kLight, kLight],
+                            ).createShader(bounds);
+                    },
+                    child: Text(
+                      navTitles[i],
+                      style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: mediumFontWeight,
+                          color: kLight),
+                    ),
                   ),
                 ),
               ),

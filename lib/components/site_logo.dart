@@ -10,13 +10,14 @@ class SiteLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      child: const Text(
+      child: const GradientText(
         "DG.DEV",
         style: TextStyle(
           fontSize: 20,
           fontWeight: boldFontWeight,
           color: greenSecondary,
         ),
+        gradient: kGreenGradient,
       ),
     );
   }

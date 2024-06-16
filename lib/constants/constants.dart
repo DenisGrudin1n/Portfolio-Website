@@ -41,9 +41,9 @@ const LinearGradient kOrangeGradient = LinearGradient(
 
 const LinearGradient kGreenGradient = LinearGradient(
   colors: [
-    Color.fromARGB(255, 0, 210, 135),
-    Color.fromARGB(255, 0, 210, 135),
-    Color.fromARGB(255, 0, 210, 180),
+    Color.fromARGB(255, 0, 255, 166),
+    Color.fromARGB(255, 0, 222, 182),
+    Color.fromARGB(255, 0, 222, 218),
   ],
   begin: Alignment.centerLeft,
   end: Alignment.centerRight,

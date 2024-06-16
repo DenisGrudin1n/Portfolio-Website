@@ -11,6 +11,8 @@ import 'package:portfolioapp/components/main_mobile.dart';
 import 'package:portfolioapp/components/projects_section.dart';
 import 'package:portfolioapp/components/skills_section.dart';
 import 'package:portfolioapp/constants/constants.dart';
+import 'package:portfolioapp/controllers/navtitles_controller.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -25,6 +27,21 @@ class _HomePageState extends State<HomePage> {
   final List<GlobalKey> navbarKeys = List.generate(5, (index) => GlobalKey());
   final List<GlobalKey> navbarMobileKeys =
       List.generate(2, (index) => GlobalKey());
+
+  void onScroll() {
+    final provider = Provider.of<NavTitlesProvider>(context, listen: false);
+    for (int i = 0; i < navbarKeys.length; i++) {
+      final keyContext = navbarKeys[i].currentContext;
+      if (keyContext != null) {
+        final box = keyContext.findRenderObject() as RenderBox;
+        final position = box.localToGlobal(Offset.zero);
+        if (position.dy <= 100 && position.dy + box.size.height > 100) {
+          provider.setActiveIndex(i);
+          break;
+        }
+      }
+    }
+  }
 
   void scrollToSection(int navIndex) {
     final key = navbarKeys[navIndex];

@@ -3,7 +3,9 @@ import 'dart:math';
 import 'package:animated_widgets/widgets/translation_animated.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolioapp/constants/constants.dart';
+import 'package:portfolioapp/controllers/navtitles_controller.dart';
 import 'package:portfolioapp/services/download_service.dart';
+import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class MainDesktop extends StatefulWidget {
@@ -99,6 +101,7 @@ class MainDesktopState extends State<MainDesktop>
                 onVisibilityChanged: (info) {
                   if (info.visibleFraction > 0.5) {
                     startAnimations();
+                    context.read<NavTitlesProvider>().setActiveIndex(0);
                   }
                 },
                 child: TranslationAnimatedWidget(
@@ -128,32 +131,24 @@ class MainDesktopState extends State<MainDesktop>
               const SizedBox(
                 height: 25,
               ),
-              VisibilityDetector(
-                key: const Key('textMainDekstop'),
-                onVisibilityChanged: (info) {
-                  if (info.visibleFraction > 0.5) {
-                    startAnimations();
-                  }
-                },
-                child: TranslationAnimatedWidget(
-                  enabled: isTextVisible,
-                  duration: const Duration(milliseconds: 300),
-                  values: const [
-                    Offset(-100, 0), // Offsets for animation start
-                    Offset(0, 0) // Offsets for animation end
-                  ],
-                  child: Opacity(
-                    opacity: isTextVisible ? opacityAnimation.value : 0,
-                    child: const MouseRegion(
-                      cursor: SystemMouseCursors.text,
-                      child: Text(
-                        "Hi, I`m Denis. A passionate mobile developer\nfrom Uzhhgorod, Ukraine.\n",
-                        style: TextStyle(
-                          color: kLight,
-                          fontWeight: mediumFontWeight,
-                          fontSize: 20,
-                          height: 1.7,
-                        ),
+              TranslationAnimatedWidget(
+                enabled: isTextVisible,
+                duration: const Duration(milliseconds: 300),
+                values: const [
+                  Offset(-100, 0), // Offsets for animation start
+                  Offset(0, 0) // Offsets for animation end
+                ],
+                child: Opacity(
+                  opacity: isTextVisible ? opacityAnimation.value : 0,
+                  child: const MouseRegion(
+                    cursor: SystemMouseCursors.text,
+                    child: Text(
+                      "Hi, I`m Denis. A passionate mobile developer\nfrom Uzhhgorod, Ukraine.\n",
+                      style: TextStyle(
+                        color: kLight,
+                        fontWeight: mediumFontWeight,
+                        fontSize: 20,
+                        height: 1.7,
                       ),
                     ),
                   ),
@@ -194,13 +189,14 @@ class MainDesktopState extends State<MainDesktop>
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
-                                Text(
+                                GradientText(
                                   "Download CV",
                                   style: TextStyle(
                                     color: greenSecondary,
                                     fontWeight: boldFontWeight,
                                     fontSize: 20,
                                   ),
+                                  gradient: kGreenGradient,
                                 ),
                                 SizedBox(
                                   width: 2,

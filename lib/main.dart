@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:portfolioapp/controllers/navtitles_controller.dart';
 import 'package:portfolioapp/views/home_page.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(
-    const MyApp(),
+    ChangeNotifierProvider(
+      create: (context) => NavTitlesProvider(),
+      child: const MyApp(),
+    ),
   );
 }
 

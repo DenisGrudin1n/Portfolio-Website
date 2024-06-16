@@ -3,7 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:animated_widgets/animated_widgets.dart';
 import 'package:portfolioapp/constants/constants.dart';
+import 'package:portfolioapp/controllers/navtitles_controller.dart';
 import 'package:portfolioapp/services/download_service.dart';
+import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class MainMobile extends StatefulWidget {
@@ -100,6 +102,7 @@ class MainMobileState extends State<MainMobile>
               onVisibilityChanged: (info) {
                 if (info.visibleFraction > 0.5) {
                   startAnimations();
+                  context.read<NavTitlesProvider>().setActiveIndex(0);
                 }
               },
               child: AnimatedOpacity(
@@ -134,6 +137,7 @@ class MainMobileState extends State<MainMobile>
               onVisibilityChanged: (info) {
                 if (info.visibleFraction > 0.5) {
                   startAnimations();
+                  context.read<NavTitlesProvider>().setActiveIndex(0);
                 }
               },
               child: TranslationAnimatedWidget(
@@ -165,6 +169,7 @@ class MainMobileState extends State<MainMobile>
               onVisibilityChanged: (info) {
                 if (info.visibleFraction > 0.5) {
                   startAnimations();
+                  context.read<NavTitlesProvider>().setActiveIndex(0);
                 }
               },
               child: TranslationAnimatedWidget(
@@ -199,6 +204,7 @@ class MainMobileState extends State<MainMobile>
               onVisibilityChanged: (info) {
                 if (info.visibleFraction > 0.5) {
                   startAnimations();
+                  context.read<NavTitlesProvider>().setActiveIndex(0);
                 }
               },
               child: TranslationAnimatedWidget(
@@ -230,6 +236,7 @@ class MainMobileState extends State<MainMobile>
               onVisibilityChanged: (info) {
                 if (info.visibleFraction > 0.5) {
                   startAnimations();
+                  context.read<NavTitlesProvider>().setActiveIndex(0);
                 }
               },
               child: TranslationAnimatedWidget(
@@ -264,6 +271,7 @@ class MainMobileState extends State<MainMobile>
               onVisibilityChanged: (info) {
                 if (info.visibleFraction > 0.5) {
                   startAnimations();
+                  context.read<NavTitlesProvider>().setActiveIndex(0);
                 }
               },
               child: LayoutBuilder(
@@ -298,13 +306,14 @@ class MainMobileState extends State<MainMobile>
                                 child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text(
+                                    GradientText(
                                       "Download CV",
                                       style: TextStyle(
                                         color: greenSecondary,
                                         fontWeight: boldFontWeight,
                                         fontSize: 20,
                                       ),
+                                      gradient: kGreenGradient,
                                     ),
                                     SizedBox(
                                       width: 2,
@@ -333,12 +342,22 @@ class MainMobileState extends State<MainMobile>
                           child: Opacity(
                             opacity:
                                 isButton2Visible ? opacityAnimation.value : 0,
-                            child: SizedBox(
+                            child: Container(
                               width: 220,
                               height: 60,
+                              decoration: BoxDecoration(
+                                gradient: kGreenGradient,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: greenSecondary,
+                                  backgroundColor: Colors.transparent,
+                                  foregroundColor: Colors.transparent,
+                                  shadowColor: Colors.transparent,
+                                  surfaceTintColor: Colors.transparent,
+                                  disabledBackgroundColor: Colors.transparent,
+                                  disabledForegroundColor: Colors.transparent,
+                                  elevation: 0,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),
                                   ),
@@ -402,13 +421,14 @@ class MainMobileState extends State<MainMobile>
                                 child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
-                                    Text(
+                                    GradientText(
                                       "Download CV",
                                       style: TextStyle(
                                         color: greenSecondary,
                                         fontWeight: boldFontWeight,
                                         fontSize: 20,
                                       ),
+                                      gradient: kGreenGradient,
                                     ),
                                     SizedBox(
                                       width: 2,
@@ -437,12 +457,22 @@ class MainMobileState extends State<MainMobile>
                           child: Opacity(
                             opacity:
                                 isButton2Visible ? opacityAnimation.value : 0,
-                            child: SizedBox(
+                            child: Container(
                               width: 220,
                               height: 60,
+                              decoration: BoxDecoration(
+                                gradient: kGreenGradient,
+                                borderRadius: BorderRadius.circular(20),
+                              ),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: greenSecondary,
+                                  backgroundColor: Colors.transparent,
+                                  foregroundColor: Colors.transparent,
+                                  shadowColor: Colors.transparent,
+                                  surfaceTintColor: Colors.transparent,
+                                  disabledBackgroundColor: Colors.transparent,
+                                  disabledForegroundColor: Colors.transparent,
+                                  elevation: 0,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),
                                   ),

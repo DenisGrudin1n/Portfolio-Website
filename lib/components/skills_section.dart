@@ -4,6 +4,8 @@ import 'package:animated_widgets/animated_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolioapp/constants/constants.dart';
+import 'package:portfolioapp/controllers/navtitles_controller.dart';
+import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class SkillsSection extends StatefulWidget {
@@ -98,13 +100,14 @@ class _SkillsSectionState extends State<SkillsSection>
                   : 0,
               child: const MouseRegion(
                 cursor: SystemMouseCursors.text,
-                child: Text(
+                child: GradientText(
                   "Skills",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: boldFontWeight,
                     color: kLight,
                   ),
+                  gradient: kGreenGradient,
                 ),
               ),
             ),
@@ -117,67 +120,76 @@ class _SkillsSectionState extends State<SkillsSection>
             spacing: 20,
             runSpacing: 20,
             children: [
-              ScaleAnimatedWidget(
-                duration: const Duration(milliseconds: 300),
-                enabled: isSkillsContainer1Visible,
-                values: const [0.0, 1.0],
-                child: Container(
-                  width: containerWidth,
-                  height: containerHeight,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    color: darkBlack,
-                  ),
-                  child: Column(
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.only(top: 35),
-                        child: MouseRegion(
-                          cursor: SystemMouseCursors.text,
-                          child: Text(
-                            "Technologies",
-                            style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: boldFontWeight,
-                              color: kLight,
+              VisibilityDetector(
+                key: const Key('skillsContainer'),
+                onVisibilityChanged: (info) {
+                  if (info.visibleFraction > 0.5) {
+                    startAnimations();
+                    context.read<NavTitlesProvider>().setActiveIndex(2);
+                  }
+                },
+                child: ScaleAnimatedWidget(
+                  duration: const Duration(milliseconds: 300),
+                  enabled: isSkillsContainer1Visible,
+                  values: const [0.0, 1.0],
+                  child: Container(
+                    width: containerWidth,
+                    height: containerHeight,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12),
+                      color: darkBlack,
+                    ),
+                    child: Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(top: 35),
+                          child: MouseRegion(
+                            cursor: SystemMouseCursors.text,
+                            child: Text(
+                              "Technologies",
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: boldFontWeight,
+                                color: kLight,
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      for (int i = 0; i < technologyItems.length; i += 2)
-                        Padding(
-                          padding: const EdgeInsets.only(bottom: 20),
-                          child: Row(
-                            children: [
-                              if (i == technologyItems.length - 1)
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 38),
-                                  child: HoverableIcon(
-                                    imgPath: technologyItems[i]["img"],
-                                    title: technologyItems[i]["title"],
-                                  ),
-                                ),
-                              if (i != technologyItems.length - 1)
-                                Expanded(
-                                  child: HoverableIcon(
-                                    imgPath: technologyItems[i]["img"],
-                                    title: technologyItems[i]["title"],
-                                  ),
-                                ),
-                              if (i < technologyItems.length - 1)
-                                Expanded(
-                                  child: HoverableIcon(
-                                    imgPath: technologyItems[i + 1]["img"],
-                                    title: technologyItems[i + 1]["title"],
-                                  ),
-                                ),
-                            ],
-                          ),
+                        const SizedBox(
+                          height: 20,
                         ),
-                    ],
+                        for (int i = 0; i < technologyItems.length; i += 2)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 20),
+                            child: Row(
+                              children: [
+                                if (i == technologyItems.length - 1)
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 38),
+                                    child: HoverableIcon(
+                                      imgPath: technologyItems[i]["img"],
+                                      title: technologyItems[i]["title"],
+                                    ),
+                                  ),
+                                if (i != technologyItems.length - 1)
+                                  Expanded(
+                                    child: HoverableIcon(
+                                      imgPath: technologyItems[i]["img"],
+                                      title: technologyItems[i]["title"],
+                                    ),
+                                  ),
+                                if (i < technologyItems.length - 1)
+                                  Expanded(
+                                    child: HoverableIcon(
+                                      imgPath: technologyItems[i + 1]["img"],
+                                      title: technologyItems[i + 1]["title"],
+                                    ),
+                                  ),
+                              ],
+                            ),
+                          ),
+                      ],
+                    ),
                   ),
                 ),
               ),

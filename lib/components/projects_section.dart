@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:portfolioapp/components/project_card.dart';
 import 'package:portfolioapp/constants/constants.dart';
+import 'package:portfolioapp/controllers/navtitles_controller.dart';
 import 'package:portfolioapp/models/project_model.dart';
 import 'package:animated_widgets/animated_widgets.dart';
+import 'package:provider/provider.dart';
 import 'dart:math';
 
 import 'package:visibility_detector/visibility_detector.dart';
@@ -87,13 +89,14 @@ class ProjectsSectionState extends State<ProjectsSection>
               opacity: pow(opacityAnimation.value, 5).toDouble(),
               child: const MouseRegion(
                 cursor: SystemMouseCursors.text,
-                child: Text(
+                child: GradientText(
                   "Projects",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: boldFontWeight,
                     color: kLight,
                   ),
+                  gradient: kGreenGradient,
                 ),
               ),
             ),
@@ -107,16 +110,27 @@ class ProjectsSectionState extends State<ProjectsSection>
             runSpacing: 20,
             children: [
               for (int i = 0; i < projects.length; i++)
-                ScaleAnimatedWidget(
-                  duration: const Duration(milliseconds: 300),
-                  enabled: isProjectCardVisibleList[i],
-                  values: const [0.0, 1.0],
-                  child: Transform.scale(
-                    scale: 1.2,
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(35, 35, 35, 55),
-                      child: HoverableProjectCard(
-                        project: projects[i],
+                VisibilityDetector(
+                  key: Key(
+                    'projectsCard${i.toString()}',
+                  ),
+                  onVisibilityChanged: (info) {
+                    if (info.visibleFraction > 0.9) {
+                      startAnimations();
+                      context.read<NavTitlesProvider>().setActiveIndex(3);
+                    }
+                  },
+                  child: ScaleAnimatedWidget(
+                    duration: const Duration(milliseconds: 300),
+                    enabled: isProjectCardVisibleList[i],
+                    values: const [0.0, 1.0],
+                    child: Transform.scale(
+                      scale: 1.2,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(35, 35, 35, 55),
+                        child: HoverableProjectCard(
+                          project: projects[i],
+                        ),
                       ),
                     ),
                   ),
@@ -150,7 +164,7 @@ class HoverableProjectCardState extends State<HoverableProjectCard> {
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
       child: AnimatedOpacity(
-        opacity: _isHovered ? 0.9 : 1.0,
+        opacity: _isHovered ? 0.75 : 1.0,
         duration: const Duration(milliseconds: 30),
         child: ProjectCard(project: widget.project),
       ),

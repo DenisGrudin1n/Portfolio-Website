@@ -3,7 +3,9 @@ import 'dart:math';
 import 'package:animated_widgets/animated_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolioapp/constants/constants.dart';
+import 'package:portfolioapp/controllers/navtitles_controller.dart';
 import 'package:portfolioapp/services/download_service.dart';
+import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ContactsSection extends StatefulWidget {
@@ -104,13 +106,14 @@ class _ContactsSectionState extends State<ContactsSection>
                   : 0,
               child: const MouseRegion(
                 cursor: SystemMouseCursors.text,
-                child: Text(
+                child: GradientText(
                   "Contacts",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: boldFontWeight,
                     color: kLight,
                   ),
+                  gradient: kGreenGradient,
                 ),
               ),
             ),
@@ -149,11 +152,20 @@ class _ContactsSectionState extends State<ContactsSection>
                       enabled: isContactItem4Visible,
                       values: const [0.0, 1.0],
                       child: contactItem(contactItems[3], launchUrl)),
-                  ScaleAnimatedWidget(
-                      duration: const Duration(milliseconds: 200),
-                      enabled: isContactItem5Visible,
-                      values: const [0.0, 1.0],
-                      child: contactItem(contactItems[4], launchUrl)),
+                  VisibilityDetector(
+                    key: const Key('contactsItem'),
+                    onVisibilityChanged: (info) {
+                      if (info.visibleFraction > 0.9) {
+                        startAnimations();
+                        context.read<NavTitlesProvider>().setActiveIndex(4);
+                      }
+                    },
+                    child: ScaleAnimatedWidget(
+                        duration: const Duration(milliseconds: 200),
+                        enabled: isContactItem5Visible,
+                        values: const [0.0, 1.0],
+                        child: contactItem(contactItems[4], launchUrl)),
+                  ),
                 ],
               ),
             ],

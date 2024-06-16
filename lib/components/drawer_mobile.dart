@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolioapp/constants/constants.dart';
+import 'package:portfolioapp/controllers/navtitles_controller.dart';
+import 'package:provider/provider.dart';
 
 class DrawerMobile extends StatelessWidget {
   final Function(int) onNavItemTap;
@@ -11,6 +13,7 @@ class DrawerMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final activeIndex = context.watch<NavTitlesProvider>().activeIndex;
     return Drawer(
       backgroundColor: bgDark1,
       child: ListView(
@@ -40,11 +43,29 @@ class DrawerMobile extends StatelessWidget {
                 fontWeight: mediumFontWeight,
                 fontSize: 16,
               ),
-              leading: Icon(
-                navIcons[i],
-                color: kLight,
+              leading: ShaderMask(
+                shaderCallback: (bounds) {
+                  return activeIndex == i
+                      ? kGreenGradient.createShader(bounds)
+                      : const LinearGradient(
+                          colors: [kLight, kLight],
+                        ).createShader(bounds);
+                },
+                child: Icon(
+                  navIcons[i],
+                  color: kLight,
+                ),
               ),
-              title: Text(navTitles[i]),
+              title: ShaderMask(
+                shaderCallback: (bounds) {
+                  return activeIndex == i
+                      ? kGreenGradient.createShader(bounds)
+                      : const LinearGradient(
+                          colors: [kLight, kLight],
+                        ).createShader(bounds);
+                },
+                child: Text(navTitles[i]),
+              ),
               onTap: () {
                 onNavItemTap(i);
               },

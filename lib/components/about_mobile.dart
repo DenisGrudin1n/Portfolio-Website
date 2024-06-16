@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:animated_widgets/animated_widgets.dart';
 import 'package:portfolioapp/constants/constants.dart';
+import 'package:portfolioapp/controllers/navtitles_controller.dart';
+import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class AboutMobile extends StatefulWidget {
@@ -89,13 +91,14 @@ class AboutMobileState extends State<AboutMobile>
                   : 0,
               child: const MouseRegion(
                 cursor: SystemMouseCursors.text,
-                child: Text(
+                child: GradientText(
                   "About Me",
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: boldFontWeight,
                     color: kLight,
                   ),
+                  gradient: kGreenGradient,
                 ),
               ),
             ),
@@ -107,8 +110,9 @@ class AboutMobileState extends State<AboutMobile>
           VisibilityDetector(
             key: const Key('imageAboutMobile'),
             onVisibilityChanged: (info) {
-              if (!isImageVisible && info.visibleFraction > 0.5) {
+              if (info.visibleFraction > 0.5) {
                 startAnimations();
+                context.read<NavTitlesProvider>().setActiveIndex(1);
               }
             },
             child: ScaleAnimatedWidget(

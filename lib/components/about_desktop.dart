@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:animated_widgets/animated_widgets.dart';
 import 'package:portfolioapp/constants/constants.dart';
+import 'package:portfolioapp/controllers/navtitles_controller.dart';
+import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class AboutDesktop extends StatefulWidget {
@@ -98,13 +100,14 @@ class AboutDesktopState extends State<AboutDesktop>
                       : 0,
                   child: const MouseRegion(
                     cursor: SystemMouseCursors.text,
-                    child: Text(
+                    child: GradientText(
                       "About Me",
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: boldFontWeight,
                         color: kLight,
                       ),
+                      gradient: kGreenGradient,
                     ),
                   ),
                 ),
@@ -122,6 +125,7 @@ class AboutDesktopState extends State<AboutDesktop>
                     onVisibilityChanged: (info) {
                       if (!isImageVisible && info.visibleFraction > 0.5) {
                         startAnimations();
+                        context.read<NavTitlesProvider>().setActiveIndex(1);
                       }
                     },
                     child: ScaleAnimatedWidget(
@@ -172,24 +176,35 @@ class AboutDesktopState extends State<AboutDesktop>
                           height: 20,
                         ),
                         // Second Text
-                        TranslationAnimatedWidget(
-                          duration: const Duration(milliseconds: 200),
-                          enabled: isText2Visible,
-                          values: const [
-                            Offset(0, 50),
-                            Offset(0, 0),
-                          ],
-                          child: Opacity(
-                            opacity:
-                                isText2Visible ? opacityAnimation.value : 0,
-                            child: const MouseRegion(
-                              cursor: SystemMouseCursors.text,
-                              child: Text(
-                                """Excellent focus, communication, and ability to learn rapidly. Excels working in a team environment. Strong critical analysis and problem solving.""",
-                                style: TextStyle(
-                                  color: kLightSecondary,
-                                  fontWeight: mediumFontWeight,
-                                  fontSize: 22,
+                        VisibilityDetector(
+                          key: const Key('AboutText2'),
+                          onVisibilityChanged: (info) {
+                            if (info.visibleFraction > 0.5) {
+                              startAnimations();
+                              context
+                                  .read<NavTitlesProvider>()
+                                  .setActiveIndex(1);
+                            }
+                          },
+                          child: TranslationAnimatedWidget(
+                            duration: const Duration(milliseconds: 200),
+                            enabled: isText2Visible,
+                            values: const [
+                              Offset(0, 50),
+                              Offset(0, 0),
+                            ],
+                            child: Opacity(
+                              opacity:
+                                  isText2Visible ? opacityAnimation.value : 0,
+                              child: const MouseRegion(
+                                cursor: SystemMouseCursors.text,
+                                child: Text(
+                                  """Excellent focus, communication, and ability to learn rapidly. Excels working in a team environment. Strong critical analysis and problem solving.""",
+                                  style: TextStyle(
+                                    color: kLightSecondary,
+                                    fontWeight: mediumFontWeight,
+                                    fontSize: 22,
+                                  ),
                                 ),
                               ),
                             ),
