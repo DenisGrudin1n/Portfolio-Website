@@ -9,14 +9,13 @@ import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class ContactsSection extends StatefulWidget {
-  const ContactsSection({Key? key}) : super(key: key);
+  const ContactsSection({super.key});
 
   @override
   State<ContactsSection> createState() => _ContactsSectionState();
 }
 
-class _ContactsSectionState extends State<ContactsSection>
-    with SingleTickerProviderStateMixin {
+class _ContactsSectionState extends State<ContactsSection> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> opacityAnimation;
   bool isTitleVisible = false;
@@ -101,13 +100,11 @@ class _ContactsSectionState extends State<ContactsSection>
             },
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: 150),
-              opacity: isTitleVisible
-                  ? pow(opacityAnimation.value, 5).toDouble()
-                  : 0,
+              opacity: isTitleVisible ? pow(opacityAnimation.value, 5).toDouble() : 0,
               child: const MouseRegion(
                 cursor: SystemMouseCursors.text,
                 child: GradientText(
-                  "Contacts",
+                  'Contacts',
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: boldFontWeight,
@@ -182,12 +179,12 @@ class _ContactsSectionState extends State<ContactsSection>
         mainAxisSize: MainAxisSize.min,
         children: [
           InkWell(
-            onTap: item["link"] != null ? () => launchUrl(item["link"]!) : null,
+            onTap: item['link'] != null ? () => launchUrl(item['link']!) : null,
             child: CircleAvatar(
               radius: 30,
               backgroundColor: kLight,
               child: Image.asset(
-                item["icon"]!,
+                item['icon']!,
                 height: 32.5,
                 width: 32.5,
               ),
@@ -200,7 +197,7 @@ class _ContactsSectionState extends State<ContactsSection>
               MouseRegion(
                 cursor: SystemMouseCursors.text,
                 child: Text(
-                  item["title"]!,
+                  item['title']!,
                   style: const TextStyle(
                     fontSize: 18,
                     fontWeight: boldFontWeight,
@@ -209,11 +206,9 @@ class _ContactsSectionState extends State<ContactsSection>
                 ),
               ),
               InkWell(
-                onTap: item["link"] != null
-                    ? () => launchUrl(item["link"]!)
-                    : null,
+                onTap: item['link'] != null ? () => launchUrl(item['link']!) : null,
                 child: Text(
-                  item["subtitle"]!,
+                  item['subtitle']!,
                   style: const TextStyle(
                     fontSize: 16,
                     fontWeight: mediumFontWeight,

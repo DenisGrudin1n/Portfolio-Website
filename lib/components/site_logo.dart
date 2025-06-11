@@ -11,7 +11,7 @@ class SiteLogo extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: const GradientText(
-        "DG.DEV",
+        'DG.DEV',
         style: TextStyle(
           fontSize: 20,
           fontWeight: boldFontWeight,

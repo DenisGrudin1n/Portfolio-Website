@@ -17,8 +17,7 @@ class MainDesktop extends StatefulWidget {
   State<MainDesktop> createState() => MainDesktopState();
 }
 
-class MainDesktopState extends State<MainDesktop>
-    with SingleTickerProviderStateMixin {
+class MainDesktopState extends State<MainDesktop> with SingleTickerProviderStateMixin {
   bool isAvatarVisible = false;
   bool isTitleVisible = false;
   bool isSubtitleVisible = false;
@@ -116,7 +115,7 @@ class MainDesktopState extends State<MainDesktop>
                     child: const MouseRegion(
                       cursor: SystemMouseCursors.text,
                       child: Text(
-                        "Flutter Mobile\nDeveloper",
+                        'Flutter Mobile\nDeveloper',
                         style: TextStyle(
                           color: kLight,
                           fontWeight: boldFontWeight,
@@ -143,7 +142,7 @@ class MainDesktopState extends State<MainDesktop>
                   child: const MouseRegion(
                     cursor: SystemMouseCursors.text,
                     child: Text(
-                      "Hi, I`m Denis. A passionate mobile developer\nfrom Uzhhgorod, Ukraine.\n",
+                      'Hi, I`m Denis. A passionate mobile developer\nfrom Uzhhgorod, Ukraine.\n',
                       style: TextStyle(
                         color: kLight,
                         fontWeight: mediumFontWeight,
@@ -184,13 +183,13 @@ class MainDesktopState extends State<MainDesktop>
                             ),
                             onPressed: () {
                               launchUrl(
-                                  "https://drive.google.com/file/d/1DTmKNntFXnCUQAYA9xH-DDg1hSnStldv/view?usp=sharing");
+                                  'https://drive.google.com/file/d/1DTmKNntFXnCUQAYA9xH-DDg1hSnStldv/view?usp=sharing');
                             },
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 GradientText(
-                                  "Download CV",
+                                  'Download CV',
                                   style: TextStyle(
                                     color: greenSecondary,
                                     fontWeight: boldFontWeight,
@@ -257,7 +256,7 @@ class MainDesktopState extends State<MainDesktop>
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 Text(
-                                  "Get in touch",
+                                  'Get in touch',
                                   style: TextStyle(
                                     color: kLight,
                                     fontWeight: boldFontWeight,
@@ -292,22 +291,18 @@ class MainDesktopState extends State<MainDesktop>
             },
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: 200),
-              opacity: isAvatarVisible
-                  ? pow(opacityAnimation.value, 0.1).toDouble()
-                  : 0,
+              opacity: isAvatarVisible ? pow(opacityAnimation.value, 0.1).toDouble() : 0,
               child: CircleAvatar(
                 backgroundColor: Colors.transparent,
                 radius: screenWidth / 7.5,
                 child: ClipOval(
                   child: Image.asset(
-                    "assets/avatars/me.jpg",
+                    'assets/avatars/me.jpg',
                     fit: BoxFit.cover,
                     width: screenWidth / 3.75,
                     height: screenWidth / 3.75,
-                    errorBuilder: (BuildContext context, Object error,
-                        StackTrace? stackTrace) {
-                      return const SizedBox
-                          .shrink(); // Return an empty container if there's an error
+                    errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
+                      return const SizedBox.shrink(); // Return an empty container if there's an error
                     },
                   ),
                 ),

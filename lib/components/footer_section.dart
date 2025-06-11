@@ -17,7 +17,7 @@ class FooterSection extends StatelessWidget {
           MouseRegion(
             cursor: SystemMouseCursors.text,
             child: Text(
-              "Copyright © 2024. All rights are reserved",
+              'Copyright © 2024. All rights are reserved',
               style: TextStyle(
                 fontWeight: mediumFontWeight,
                 fontSize: 18,
@@ -31,7 +31,7 @@ class FooterSection extends StatelessWidget {
           MouseRegion(
             cursor: SystemMouseCursors.text,
             child: Text(
-              "Developed by Denis Grudinin",
+              'Developed by Denis Grudinin',
               style: TextStyle(
                 fontWeight: mediumFontWeight,
                 fontSize: 18,

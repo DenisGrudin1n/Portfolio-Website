@@ -8,14 +8,13 @@ import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class AboutMobile extends StatefulWidget {
-  const AboutMobile({Key? key}) : super(key: key);
+  const AboutMobile({super.key});
 
   @override
   AboutMobileState createState() => AboutMobileState();
 }
 
-class AboutMobileState extends State<AboutMobile>
-    with SingleTickerProviderStateMixin {
+class AboutMobileState extends State<AboutMobile> with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<double> opacityAnimation;
   bool isTitleVisible = false;
@@ -86,13 +85,11 @@ class AboutMobileState extends State<AboutMobile>
             },
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: 400),
-              opacity: isTitleVisible
-                  ? pow(opacityAnimation.value, 5).toDouble()
-                  : 0,
+              opacity: isTitleVisible ? pow(opacityAnimation.value, 5).toDouble() : 0,
               child: const MouseRegion(
                 cursor: SystemMouseCursors.text,
                 child: GradientText(
-                  "About Me",
+                  'About Me',
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: boldFontWeight,
@@ -120,7 +117,7 @@ class AboutMobileState extends State<AboutMobile>
               duration: const Duration(milliseconds: 300),
               values: const [0.0, 1.0],
               child: Image.asset(
-                "assets/aboutIcons/about.jpg",
+                'assets/aboutIcons/about.jpg',
                 height: 280,
                 width: 420,
                 fit: BoxFit.cover,
@@ -149,7 +146,7 @@ class AboutMobileState extends State<AboutMobile>
                     child: const MouseRegion(
                       cursor: SystemMouseCursors.text,
                       child: Text(
-                        """Recent university graduate with background in algorithms, data structures and object-oriented programming. Additionally, specialized courses in mobile development with a focus on Flutter & Figma.""",
+                        '''Recent university graduate with background in algorithms, data structures and object-oriented programming. Additionally, specialized courses in mobile development with a focus on Flutter & Figma.''',
                         style: TextStyle(
                           color: kLightSecondary,
                           fontWeight: mediumFontWeight,
@@ -175,7 +172,7 @@ class AboutMobileState extends State<AboutMobile>
                     child: const MouseRegion(
                       cursor: SystemMouseCursors.text,
                       child: Text(
-                        """Excellent focus, communication, and ability to learn rapidly. Excels working in a team environment. Strong critical analysis and problem solving.""",
+                        '''Excellent focus, communication, and ability to learn rapidly. Excels working in a team environment. Strong critical analysis and problem solving.''',
                         style: TextStyle(
                           color: kLightSecondary,
                           fontWeight: mediumFontWeight,

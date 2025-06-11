@@ -9,15 +9,13 @@ class HeaderMobile extends StatefulWidget {
   final VoidCallback? onLogoTap;
   final VoidCallback? onMenuTap;
 
-  const HeaderMobile(
-      {super.key, required this.onLogoTap, required this.onMenuTap});
+  const HeaderMobile({super.key, required this.onLogoTap, required this.onMenuTap});
 
   @override
   State<HeaderMobile> createState() => _HeaderMobileState();
 }
 
-class _HeaderMobileState extends State<HeaderMobile>
-    with SingleTickerProviderStateMixin {
+class _HeaderMobileState extends State<HeaderMobile> with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<double> opacityAnimation;
   bool isLogoVisible = false;
@@ -73,9 +71,7 @@ class _HeaderMobileState extends State<HeaderMobile>
             },
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: 100),
-              opacity: isLogoVisible
-                  ? pow(opacityAnimation.value, 0.05).toDouble()
-                  : 0,
+              opacity: isLogoVisible ? pow(opacityAnimation.value, 0.05).toDouble() : 0,
               child: SiteLogo(
                 onTap: widget.onLogoTap,
               ),
@@ -91,9 +87,7 @@ class _HeaderMobileState extends State<HeaderMobile>
             },
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: 100),
-              opacity: isDrawerIconVisible
-                  ? pow(opacityAnimation.value, 0.05).toDouble()
-                  : 0,
+              opacity: isDrawerIconVisible ? pow(opacityAnimation.value, 0.05).toDouble() : 0,
               child: IconButton(
                 onPressed: widget.onMenuTap,
                 icon: const Icon(

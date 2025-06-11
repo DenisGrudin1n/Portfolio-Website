@@ -17,8 +17,7 @@ class MainMobile extends StatefulWidget {
   MainMobileState createState() => MainMobileState();
 }
 
-class MainMobileState extends State<MainMobile>
-    with SingleTickerProviderStateMixin {
+class MainMobileState extends State<MainMobile> with SingleTickerProviderStateMixin {
   bool isAvatarVisible = false;
   bool isTitleVisible = false;
   bool isSubtitleVisible = false;
@@ -107,22 +106,18 @@ class MainMobileState extends State<MainMobile>
               },
               child: AnimatedOpacity(
                 duration: const Duration(milliseconds: 200),
-                opacity: isAvatarVisible
-                    ? pow(opacityAnimation.value, 0.1).toDouble()
-                    : 0,
+                opacity: isAvatarVisible ? pow(opacityAnimation.value, 0.1).toDouble() : 0,
                 child: CircleAvatar(
                   backgroundColor: Colors.transparent,
                   radius: screenWidth / 6,
                   child: ClipOval(
                     child: Image.asset(
-                      "assets/avatars/me.jpg",
+                      'assets/avatars/me.jpg',
                       fit: BoxFit.cover,
                       width: screenWidth / 3,
                       height: screenWidth / 3,
-                      errorBuilder: (BuildContext context, Object error,
-                          StackTrace? stackTrace) {
-                        return const SizedBox
-                            .shrink(); // Return an empty container if there's an error
+                      errorBuilder: (BuildContext context, Object error, StackTrace? stackTrace) {
+                        return const SizedBox.shrink(); // Return an empty container if there's an error
                       },
                     ),
                   ),
@@ -152,7 +147,7 @@ class MainMobileState extends State<MainMobile>
                   child: const MouseRegion(
                     cursor: SystemMouseCursors.text,
                     child: Text(
-                      "Flutter Mobile",
+                      'Flutter Mobile',
                       style: TextStyle(
                         color: kLight,
                         fontWeight: boldFontWeight,
@@ -184,7 +179,7 @@ class MainMobileState extends State<MainMobile>
                   child: const MouseRegion(
                     cursor: SystemMouseCursors.text,
                     child: Text(
-                      "Developer",
+                      'Developer',
                       style: TextStyle(
                         color: kLight,
                         fontWeight: boldFontWeight,
@@ -219,7 +214,7 @@ class MainMobileState extends State<MainMobile>
                   child: const MouseRegion(
                     cursor: SystemMouseCursors.text,
                     child: Text(
-                      "Hi, I`m Denis. A passionate mobile developer",
+                      'Hi, I`m Denis. A passionate mobile developer',
                       style: TextStyle(
                         color: kLight,
                         fontWeight: mediumFontWeight,
@@ -251,7 +246,7 @@ class MainMobileState extends State<MainMobile>
                   child: const MouseRegion(
                     cursor: SystemMouseCursors.text,
                     child: Text(
-                      "from Uzhhgorod, Ukraine.",
+                      'from Uzhhgorod, Ukraine.',
                       style: TextStyle(
                         color: kLight,
                         fontWeight: mediumFontWeight,
@@ -287,8 +282,7 @@ class MainMobileState extends State<MainMobile>
                             Offset(0, 0) // Offsets for animation end
                           ],
                           child: Opacity(
-                            opacity:
-                                isButton1Visible ? opacityAnimation.value : 0,
+                            opacity: isButton1Visible ? opacityAnimation.value : 0,
                             child: SizedBox(
                               width: 220,
                               height: 60,
@@ -301,13 +295,13 @@ class MainMobileState extends State<MainMobile>
                                 ),
                                 onPressed: () {
                                   launchUrl(
-                                      "https://drive.google.com/file/d/1DTmKNntFXnCUQAYA9xH-DDg1hSnStldv/view?usp=sharing");
+                                      'https://drive.google.com/file/d/1DTmKNntFXnCUQAYA9xH-DDg1hSnStldv/view?usp=sharing');
                                 },
                                 child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     GradientText(
-                                      "Download CV",
+                                      'Download CV',
                                       style: TextStyle(
                                         color: greenSecondary,
                                         fontWeight: boldFontWeight,
@@ -340,8 +334,7 @@ class MainMobileState extends State<MainMobile>
                             Offset(0, 0) // Offsets for animation end
                           ],
                           child: Opacity(
-                            opacity:
-                                isButton2Visible ? opacityAnimation.value : 0,
+                            opacity: isButton2Visible ? opacityAnimation.value : 0,
                             child: Container(
                               width: 220,
                               height: 60,
@@ -367,7 +360,7 @@ class MainMobileState extends State<MainMobile>
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      "Get in touch",
+                                      'Get in touch',
                                       style: TextStyle(
                                         color: kLight,
                                         fontWeight: boldFontWeight,
@@ -402,8 +395,7 @@ class MainMobileState extends State<MainMobile>
                             Offset(0, 0) // Offsets for animation end
                           ],
                           child: Opacity(
-                            opacity:
-                                isButton1Visible ? opacityAnimation.value : 0,
+                            opacity: isButton1Visible ? opacityAnimation.value : 0,
                             child: SizedBox(
                               width: 220,
                               height: 60,
@@ -416,13 +408,13 @@ class MainMobileState extends State<MainMobile>
                                 ),
                                 onPressed: () {
                                   launchUrl(
-                                      "https://drive.google.com/file/d/1DTmKNntFXnCUQAYA9xH-DDg1hSnStldv/view?usp=sharing");
+                                      'https://drive.google.com/file/d/1DTmKNntFXnCUQAYA9xH-DDg1hSnStldv/view?usp=sharing');
                                 },
                                 child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     GradientText(
-                                      "Download CV",
+                                      'Download CV',
                                       style: TextStyle(
                                         color: greenSecondary,
                                         fontWeight: boldFontWeight,
@@ -455,8 +447,7 @@ class MainMobileState extends State<MainMobile>
                             Offset(0, 0) // Offsets for animation end
                           ],
                           child: Opacity(
-                            opacity:
-                                isButton2Visible ? opacityAnimation.value : 0,
+                            opacity: isButton2Visible ? opacityAnimation.value : 0,
                             child: Container(
                               width: 220,
                               height: 60,
@@ -482,7 +473,7 @@ class MainMobileState extends State<MainMobile>
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Text(
-                                      "Get in touch",
+                                      'Get in touch',
                                       style: TextStyle(
                                         color: kLight,
                                         fontWeight: boldFontWeight,

@@ -8,14 +8,13 @@ import 'package:provider/provider.dart';
 import 'package:visibility_detector/visibility_detector.dart';
 
 class AboutDesktop extends StatefulWidget {
-  const AboutDesktop({Key? key}) : super(key: key);
+  const AboutDesktop({super.key});
 
   @override
   AboutDesktopState createState() => AboutDesktopState();
 }
 
-class AboutDesktopState extends State<AboutDesktop>
-    with SingleTickerProviderStateMixin {
+class AboutDesktopState extends State<AboutDesktop> with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<double> opacityAnimation;
   bool isTitleVisible = false;
@@ -73,10 +72,8 @@ class AboutDesktopState extends State<AboutDesktop>
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        double textWidth =
-            constraints.maxWidth >= kBetweenAboutWidth ? 500 : 400;
-        double sizedBoxWidth =
-            constraints.maxWidth >= kBetweenAboutWidth ? 100 : 50;
+        final double textWidth = constraints.maxWidth >= kBetweenAboutWidth ? 500 : 400;
+        final double sizedBoxWidth = constraints.maxWidth >= kBetweenAboutWidth ? 100 : 50;
 
         return Container(
           width: constraints.maxWidth,
@@ -95,13 +92,11 @@ class AboutDesktopState extends State<AboutDesktop>
                 },
                 child: AnimatedOpacity(
                   duration: const Duration(milliseconds: 200),
-                  opacity: isTitleVisible
-                      ? pow(opacityAnimation.value, 5).toDouble()
-                      : 0,
+                  opacity: isTitleVisible ? pow(opacityAnimation.value, 5).toDouble() : 0,
                   child: const MouseRegion(
                     cursor: SystemMouseCursors.text,
                     child: GradientText(
-                      "About Me",
+                      'About Me',
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: boldFontWeight,
@@ -133,7 +128,7 @@ class AboutDesktopState extends State<AboutDesktop>
                       duration: const Duration(milliseconds: 300),
                       values: const [0.0, 1.0],
                       child: Image.asset(
-                        "assets/aboutIcons/about.jpg",
+                        'assets/aboutIcons/about.jpg',
                         height: 300,
                         width: 450,
                         fit: BoxFit.cover,
@@ -157,12 +152,11 @@ class AboutDesktopState extends State<AboutDesktop>
                             Offset(0, 0),
                           ],
                           child: Opacity(
-                            opacity:
-                                isText1Visible ? opacityAnimation.value : 0,
+                            opacity: isText1Visible ? opacityAnimation.value : 0,
                             child: const MouseRegion(
                               cursor: SystemMouseCursors.text,
                               child: Text(
-                                """Recent university graduate with background in algorithms, data structures and object-oriented programming. Additionally, specialized courses in mobile development with a focus on Flutter & Figma.""",
+                                '''Recent university graduate with background in algorithms, data structures and object-oriented programming. Additionally, specialized courses in mobile development with a focus on Flutter & Figma.''',
                                 style: TextStyle(
                                   color: kLightSecondary,
                                   fontWeight: mediumFontWeight,
@@ -181,9 +175,7 @@ class AboutDesktopState extends State<AboutDesktop>
                           onVisibilityChanged: (info) {
                             if (info.visibleFraction > 0.5) {
                               startAnimations();
-                              context
-                                  .read<NavTitlesProvider>()
-                                  .setActiveIndex(1);
+                              context.read<NavTitlesProvider>().setActiveIndex(1);
                             }
                           },
                           child: TranslationAnimatedWidget(
@@ -194,12 +186,11 @@ class AboutDesktopState extends State<AboutDesktop>
                               Offset(0, 0),
                             ],
                             child: Opacity(
-                              opacity:
-                                  isText2Visible ? opacityAnimation.value : 0,
+                              opacity: isText2Visible ? opacityAnimation.value : 0,
                               child: const MouseRegion(
                                 cursor: SystemMouseCursors.text,
                                 child: Text(
-                                  """Excellent focus, communication, and ability to learn rapidly. Excels working in a team environment. Strong critical analysis and problem solving.""",
+                                  '''Excellent focus, communication, and ability to learn rapidly. Excels working in a team environment. Strong critical analysis and problem solving.''',
                                   style: TextStyle(
                                     color: kLightSecondary,
                                     fontWeight: mediumFontWeight,

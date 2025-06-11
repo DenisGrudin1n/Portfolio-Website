@@ -16,8 +16,7 @@ class ProjectsSection extends StatefulWidget {
   State<ProjectsSection> createState() => ProjectsSectionState();
 }
 
-class ProjectsSectionState extends State<ProjectsSection>
-    with SingleTickerProviderStateMixin {
+class ProjectsSectionState extends State<ProjectsSection> with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<double> opacityAnimation;
   bool isTitleVisible = false;
@@ -60,8 +59,7 @@ class ProjectsSectionState extends State<ProjectsSection>
     });
     await Future.delayed(const Duration(milliseconds: 300));
     for (int i = 0; i < projects.length; i++) {
-      await Future.delayed(
-          Duration(milliseconds: (delayValues[i] * 1000).toInt()));
+      await Future.delayed(Duration(milliseconds: (delayValues[i] * 1000).toInt()));
       setState(() {
         isProjectCardVisibleList[i] = true;
         animationController.forward();
@@ -90,7 +88,7 @@ class ProjectsSectionState extends State<ProjectsSection>
               child: const MouseRegion(
                 cursor: SystemMouseCursors.text,
                 child: GradientText(
-                  "Projects",
+                  'Projects',
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: boldFontWeight,
@@ -129,7 +127,7 @@ class ProjectsSectionState extends State<ProjectsSection>
                       child: Padding(
                         padding: const EdgeInsets.fromLTRB(35, 35, 35, 55),
                         child: HoverableProjectCard(
-                          project: projects[i], 
+                          project: projects[i],
                           isProjectCommercial: projects[i].iconsLinks != null,
                         ),
                       ),
@@ -138,10 +136,10 @@ class ProjectsSectionState extends State<ProjectsSection>
                 ),
             ],
           ),
-           const SizedBox(
+          const SizedBox(
             height: 50,
           ),
-           Wrap(
+          Wrap(
             spacing: 20,
             runSpacing: 20,
             children: [
@@ -185,10 +183,10 @@ class HoverableProjectCard extends StatefulWidget {
   final bool isProjectCommercial;
 
   const HoverableProjectCard({
-    Key? key,
+    super.key,
     required this.project,
     required this.isProjectCommercial,
-  }) : super(key: key);
+  });
 
   @override
   HoverableProjectCardState createState() => HoverableProjectCardState();
@@ -205,7 +203,10 @@ class HoverableProjectCardState extends State<HoverableProjectCard> {
       child: AnimatedOpacity(
         opacity: isHovered && !widget.isProjectCommercial ? 0.75 : 1.0,
         duration: const Duration(milliseconds: 30),
-        child: ProjectCard(project: widget.project, isProjectCommercial: widget.isProjectCommercial,),
+        child: ProjectCard(
+          project: widget.project,
+          isProjectCommercial: widget.isProjectCommercial,
+        ),
       ),
     );
   }

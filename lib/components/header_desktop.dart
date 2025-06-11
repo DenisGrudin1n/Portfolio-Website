@@ -22,8 +22,7 @@ class HeaderDesktop extends StatefulWidget {
   State<HeaderDesktop> createState() => _HeaderDesktopState();
 }
 
-class _HeaderDesktopState extends State<HeaderDesktop>
-    with SingleTickerProviderStateMixin {
+class _HeaderDesktopState extends State<HeaderDesktop> with SingleTickerProviderStateMixin {
   late AnimationController animationController;
   late Animation<double> opacityAnimation;
   bool isLogoVisible = false;
@@ -92,9 +91,7 @@ class _HeaderDesktopState extends State<HeaderDesktop>
             },
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: 200),
-              opacity: isLogoVisible
-                  ? pow(opacityAnimation.value, 0.05).toDouble()
-                  : 0,
+              opacity: isLogoVisible ? pow(opacityAnimation.value, 0.05).toDouble() : 0,
               child: TranslationAnimatedWidget(
                 duration: const Duration(milliseconds: 300),
                 enabled: isLogoVisible,
@@ -112,9 +109,7 @@ class _HeaderDesktopState extends State<HeaderDesktop>
           for (int i = 0; i < navTitles.length; i++)
             AnimatedOpacity(
               duration: const Duration(milliseconds: 150),
-              opacity: areNavTitlesVisible
-                  ? pow(opacityAnimation.value, 0.01).toDouble()
-                  : 0,
+              opacity: areNavTitlesVisible ? pow(opacityAnimation.value, 0.01).toDouble() : 0,
               child: TranslationAnimatedWidget(
                 duration: const Duration(milliseconds: 300),
                 enabled: isNavTitlesVisibleList[i],
@@ -136,10 +131,7 @@ class _HeaderDesktopState extends State<HeaderDesktop>
                     },
                     child: Text(
                       navTitles[i],
-                      style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: mediumFontWeight,
-                          color: kLight),
+                      style: const TextStyle(fontSize: 16, fontWeight: mediumFontWeight, color: kLight),
                     ),
                   ),
                 ),

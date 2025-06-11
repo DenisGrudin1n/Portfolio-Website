@@ -25,8 +25,7 @@ class _HomePageState extends State<HomePage> {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final scrollController = ScrollController();
   final List<GlobalKey> navbarKeys = List.generate(5, (index) => GlobalKey());
-  final List<GlobalKey> navbarMobileKeys =
-      List.generate(2, (index) => GlobalKey());
+  final List<GlobalKey> navbarMobileKeys = List.generate(2, (index) => GlobalKey());
 
   void onScroll() {
     final provider = Provider.of<NavTitlesProvider>(context, listen: false);
@@ -130,12 +129,9 @@ class _HomePageState extends State<HomePage> {
                               : AboutMobile(
                                   key: navbarMobileKeys[1],
                                 )),
-                      SizedBox(
-                          key: navbarKeys[2], child: const SkillsSection()),
-                      SizedBox(
-                          key: navbarKeys[3], child: const ProjectsSection()),
-                      SizedBox(
-                          key: navbarKeys[4], child: const ContactsSection()),
+                      SizedBox(key: navbarKeys[2], child: const SkillsSection()),
+                      SizedBox(key: navbarKeys[3], child: const ProjectsSection()),
+                      SizedBox(key: navbarKeys[4], child: const ContactsSection()),
                       const FooterSection(),
                     ],
                   ),

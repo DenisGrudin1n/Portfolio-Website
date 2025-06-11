@@ -15,8 +15,7 @@ class SkillsSection extends StatefulWidget {
   State<SkillsSection> createState() => _SkillsSectionState();
 }
 
-class _SkillsSectionState extends State<SkillsSection>
-    with SingleTickerProviderStateMixin {
+class _SkillsSectionState extends State<SkillsSection> with SingleTickerProviderStateMixin {
   late AnimationController _animationController;
   late Animation<double> opacityAnimation;
   bool isTitleVisible = false;
@@ -95,13 +94,11 @@ class _SkillsSectionState extends State<SkillsSection>
             },
             child: AnimatedOpacity(
               duration: const Duration(milliseconds: 200),
-              opacity: isTitleVisible
-                  ? pow(opacityAnimation.value, 5).toDouble()
-                  : 0,
+              opacity: isTitleVisible ? pow(opacityAnimation.value, 5).toDouble() : 0,
               child: const MouseRegion(
                 cursor: SystemMouseCursors.text,
                 child: GradientText(
-                  "Skills",
+                  'Skills',
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: boldFontWeight,
@@ -146,7 +143,7 @@ class _SkillsSectionState extends State<SkillsSection>
                           child: MouseRegion(
                             cursor: SystemMouseCursors.text,
                             child: Text(
-                              "Technologies",
+                              'Technologies',
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: boldFontWeight,
@@ -167,22 +164,22 @@ class _SkillsSectionState extends State<SkillsSection>
                                   Padding(
                                     padding: const EdgeInsets.only(left: 38),
                                     child: HoverableIcon(
-                                      imgPath: technologyItems[i]["img"],
-                                      title: technologyItems[i]["title"],
+                                      imgPath: technologyItems[i]['img'],
+                                      title: technologyItems[i]['title'],
                                     ),
                                   ),
                                 if (i != technologyItems.length - 1)
                                   Expanded(
                                     child: HoverableIcon(
-                                      imgPath: technologyItems[i]["img"],
-                                      title: technologyItems[i]["title"],
+                                      imgPath: technologyItems[i]['img'],
+                                      title: technologyItems[i]['title'],
                                     ),
                                   ),
                                 if (i < technologyItems.length - 1)
                                   Expanded(
                                     child: HoverableIcon(
-                                      imgPath: technologyItems[i + 1]["img"],
-                                      title: technologyItems[i + 1]["title"],
+                                      imgPath: technologyItems[i + 1]['img'],
+                                      title: technologyItems[i + 1]['title'],
                                     ),
                                   ),
                               ],
@@ -211,7 +208,7 @@ class _SkillsSectionState extends State<SkillsSection>
                         child: MouseRegion(
                           cursor: SystemMouseCursors.text,
                           child: Text(
-                            "Tools",
+                            'Tools',
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: boldFontWeight,
@@ -232,22 +229,22 @@ class _SkillsSectionState extends State<SkillsSection>
                                 Padding(
                                   padding: const EdgeInsets.only(left: 38),
                                   child: HoverableIcon(
-                                    imgPath: toolItems[i]["img"],
-                                    title: toolItems[i]["title"],
+                                    imgPath: toolItems[i]['img'],
+                                    title: toolItems[i]['title'],
                                   ),
                                 ),
                               if (i != toolItems.length - 1)
                                 Expanded(
                                   child: HoverableIcon(
-                                    imgPath: toolItems[i]["img"],
-                                    title: toolItems[i]["title"],
+                                    imgPath: toolItems[i]['img'],
+                                    title: toolItems[i]['title'],
                                   ),
                                 ),
                               if (i < toolItems.length - 1)
                                 Expanded(
                                   child: HoverableIcon(
-                                    imgPath: toolItems[i + 1]["img"],
-                                    title: toolItems[i + 1]["title"],
+                                    imgPath: toolItems[i + 1]['img'],
+                                    title: toolItems[i + 1]['title'],
                                   ),
                                 ),
                             ],
@@ -275,7 +272,7 @@ class _SkillsSectionState extends State<SkillsSection>
                         child: MouseRegion(
                           cursor: SystemMouseCursors.text,
                           child: Text(
-                            "Platforms",
+                            'Platforms',
                             style: TextStyle(
                               fontSize: 24,
                               fontWeight: boldFontWeight,
@@ -296,22 +293,22 @@ class _SkillsSectionState extends State<SkillsSection>
                                 Padding(
                                   padding: const EdgeInsets.only(left: 38),
                                   child: HoverableIcon(
-                                    imgPath: platformItems[i]["img"],
-                                    title: platformItems[i]["title"],
+                                    imgPath: platformItems[i]['img'],
+                                    title: platformItems[i]['title'],
                                   ),
                                 ),
                               if (i != platformItems.length - 1)
                                 Expanded(
                                   child: HoverableIcon(
-                                    imgPath: platformItems[i]["img"],
-                                    title: platformItems[i]["title"],
+                                    imgPath: platformItems[i]['img'],
+                                    title: platformItems[i]['title'],
                                   ),
                                 ),
                               if (i < platformItems.length - 1)
                                 Expanded(
                                   child: HoverableIcon(
-                                    imgPath: platformItems[i + 1]["img"],
-                                    title: platformItems[i + 1]["title"],
+                                    imgPath: platformItems[i + 1]['img'],
+                                    title: platformItems[i + 1]['title'],
                                   ),
                                 ),
                             ],
@@ -334,10 +331,10 @@ class HoverableIcon extends StatefulWidget {
   final String title;
 
   const HoverableIcon({
-    Key? key,
+    super.key,
     required this.imgPath,
     required this.title,
-  }) : super(key: key);
+  });
 
   @override
   HoverableIconState createState() => HoverableIconState();
