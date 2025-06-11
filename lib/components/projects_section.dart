@@ -109,7 +109,43 @@ class ProjectsSectionState extends State<ProjectsSection>
             spacing: 20,
             runSpacing: 20,
             children: [
-              for (int i = 0; i < projects.length; i++)
+              for (int i = 0; i < 2; i++)
+                VisibilityDetector(
+                  key: Key(
+                    'projectsCard${i.toString()}',
+                  ),
+                  onVisibilityChanged: (info) {
+                    if (info.visibleFraction > 0.9) {
+                      startAnimations();
+                      context.read<NavTitlesProvider>().setActiveIndex(3);
+                    }
+                  },
+                  child: ScaleAnimatedWidget(
+                    duration: const Duration(milliseconds: 300),
+                    enabled: isProjectCardVisibleList[i],
+                    values: const [0.0, 1.0],
+                    child: Transform.scale(
+                      scale: 1.2,
+                      child: Padding(
+                        padding: const EdgeInsets.fromLTRB(35, 35, 35, 55),
+                        child: HoverableProjectCard(
+                          project: projects[i], 
+                          isProjectCommercial: projects[i].iconsLinks != null,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+            ],
+          ),
+           const SizedBox(
+            height: 50,
+          ),
+           Wrap(
+            spacing: 20,
+            runSpacing: 20,
+            children: [
+              for (int i = 2; i < projects.length; i++)
                 VisibilityDetector(
                   key: Key(
                     'projectsCard${i.toString()}',
@@ -130,6 +166,7 @@ class ProjectsSectionState extends State<ProjectsSection>
                         padding: const EdgeInsets.fromLTRB(35, 35, 35, 55),
                         child: HoverableProjectCard(
                           project: projects[i],
+                          isProjectCommercial: projects[i].iconsLinks != null,
                         ),
                       ),
                     ),
@@ -145,10 +182,12 @@ class ProjectsSectionState extends State<ProjectsSection>
 
 class HoverableProjectCard extends StatefulWidget {
   final ProjectModel project;
+  final bool isProjectCommercial;
 
   const HoverableProjectCard({
     Key? key,
     required this.project,
+    required this.isProjectCommercial,
   }) : super(key: key);
 
   @override
@@ -156,17 +195,17 @@ class HoverableProjectCard extends StatefulWidget {
 }
 
 class HoverableProjectCardState extends State<HoverableProjectCard> {
-  bool _isHovered = false;
+  bool isHovered = false;
 
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
-      onEnter: (_) => setState(() => _isHovered = true),
-      onExit: (_) => setState(() => _isHovered = false),
+      onEnter: (_) => setState(() => isHovered = true),
+      onExit: (_) => setState(() => isHovered = false),
       child: AnimatedOpacity(
-        opacity: _isHovered ? 0.75 : 1.0,
+        opacity: isHovered && !widget.isProjectCommercial ? 0.75 : 1.0,
         duration: const Duration(milliseconds: 30),
-        child: ProjectCard(project: widget.project),
+        child: ProjectCard(project: widget.project, isProjectCommercial: widget.isProjectCommercial,),
       ),
     );
   }
