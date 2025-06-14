@@ -50,7 +50,7 @@ List<ProjectModel> projects = [
     image: 'assets/projects/whatsapp-redesign.jpg',
     title: 'WhatsApp Redesign',
     subtitle:
-        'WhatsApp Redesign reimagines one of the world’s most popular messaging apps with a fresh, modern interface. The concept enhances usability, streamlines interactions, and brings a visually polished experience—while staying true to the simplicity users love.',
+        'WhatsApp Redesign reimagines one of the world’s most popular messaging apps with a fresh, modern interface. The concept enhances usability, streamlines interactions, and brings a visually polished experience. Powered by Flutter and Supabase.',
     githubLink: 'https://github.com/DenisGrudin1n/WhatsApp-Redesign',
     icons: ['assets/skillsIcons/android-original.svg', 'assets/skillsIcons/ios-original.svg'],
   ),

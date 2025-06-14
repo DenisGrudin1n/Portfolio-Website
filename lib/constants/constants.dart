@@ -110,24 +110,32 @@ List<Map> technologyItems = [
     'title': 'Dart',
   },
   {
-    'img': 'assets/skillsIcons/cplusplus-original.svg',
-    'title': 'C++',
+    'img': 'assets/skillsIcons/revenuecat.png',
+    'title': 'RevenueCat',
   },
   {
     'img': 'assets/skillsIcons/flutter-original.svg',
     'title': '  Flutter',
   },
   {
-    'img': 'assets/skillsIcons/csharp-original.svg',
-    'title': 'C#',
+    'img': 'assets/skillsIcons/onesignal.png',
+    'title': 'OneSignal',
   },
   {
     'img': 'assets/skillsIcons/firebase-original.svg',
     'title': 'Firebase',
   },
   {
-    'img': 'assets/skillsIcons/python-original.svg',
-    'title': 'Python',
+    'img': 'assets/skillsIcons/amplitude.jpg',
+    'title': 'Amplitude',
+  },
+  {
+    'img': 'assets/skillsIcons/supabase-original.svg',
+    'title': 'Supabase',
+  },
+  {
+    'img': 'assets/skillsIcons/singular.jpg',
+    'title': 'Singular',
   }
 ];
 
@@ -145,20 +153,20 @@ List<Map> toolItems = [
     'title': 'GitHub',
   },
   {
-    'img': 'assets/skillsIcons/photoshop-original.svg',
-    'title': 'Photoshop',
+    'img': 'assets/skillsIcons/jira.svg',
+    'title': 'Jira',
+  },
+  {
+    'img': 'assets/skillsIcons/postman.svg',
+    'title': 'Postman',
+  },
+  {
+    'img': 'assets/skillsIcons/miro.png',
+    'title': 'Miro',
   },
   {
     'img': 'assets/skillsIcons/googlecloud-original.svg',
     'title': 'Google Cloud',
-  },
-  {
-    'img': 'assets/skillsIcons/illustrator-original.svg',
-    'title': 'Illustrator',
-  },
-  {
-    'img': 'assets/skillsIcons/androidstudio-original.svg',
-    'title': 'Android Studio',
   },
   {
     'img': 'assets/skillsIcons/trello-original.svg',

@@ -160,28 +160,18 @@ class _SkillsSectionState extends State<SkillsSection> with SingleTickerProvider
                             padding: const EdgeInsets.only(bottom: 20),
                             child: Row(
                               children: [
-                                if (i == technologyItems.length - 1)
-                                  Padding(
-                                    padding: const EdgeInsets.only(left: 38),
-                                    child: HoverableIcon(
-                                      imgPath: technologyItems[i]['img'],
-                                      title: technologyItems[i]['title'],
-                                    ),
+                                Expanded(
+                                  child: HoverableIcon(
+                                    imgPath: technologyItems[i]['img'],
+                                    title: technologyItems[i]['title'],
                                   ),
-                                if (i != technologyItems.length - 1)
-                                  Expanded(
-                                    child: HoverableIcon(
-                                      imgPath: technologyItems[i]['img'],
-                                      title: technologyItems[i]['title'],
-                                    ),
+                                ),
+                                Expanded(
+                                  child: HoverableIcon(
+                                    imgPath: technologyItems[i + 1]['img'],
+                                    title: technologyItems[i + 1]['title'],
                                   ),
-                                if (i < technologyItems.length - 1)
-                                  Expanded(
-                                    child: HoverableIcon(
-                                      imgPath: technologyItems[i + 1]['img'],
-                                      title: technologyItems[i + 1]['title'],
-                                    ),
-                                  ),
+                                ),
                               ],
                             ),
                           ),
@@ -225,28 +215,18 @@ class _SkillsSectionState extends State<SkillsSection> with SingleTickerProvider
                           padding: const EdgeInsets.only(bottom: 20),
                           child: Row(
                             children: [
-                              if (i == toolItems.length - 1)
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 38),
-                                  child: HoverableIcon(
-                                    imgPath: toolItems[i]['img'],
-                                    title: toolItems[i]['title'],
-                                  ),
+                              Expanded(
+                                child: HoverableIcon(
+                                  imgPath: toolItems[i]['img'],
+                                  title: toolItems[i]['title'],
                                 ),
-                              if (i != toolItems.length - 1)
-                                Expanded(
-                                  child: HoverableIcon(
-                                    imgPath: toolItems[i]['img'],
-                                    title: toolItems[i]['title'],
-                                  ),
+                              ),
+                              Expanded(
+                                child: HoverableIcon(
+                                  imgPath: toolItems[i + 1]['img'],
+                                  title: toolItems[i + 1]['title'],
                                 ),
-                              if (i < toolItems.length - 1)
-                                Expanded(
-                                  child: HoverableIcon(
-                                    imgPath: toolItems[i + 1]['img'],
-                                    title: toolItems[i + 1]['title'],
-                                  ),
-                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -289,28 +269,18 @@ class _SkillsSectionState extends State<SkillsSection> with SingleTickerProvider
                           padding: const EdgeInsets.only(bottom: 20),
                           child: Row(
                             children: [
-                              if (i == platformItems.length - 1)
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 38),
-                                  child: HoverableIcon(
-                                    imgPath: platformItems[i]['img'],
-                                    title: platformItems[i]['title'],
-                                  ),
+                              Expanded(
+                                child: HoverableIcon(
+                                  imgPath: platformItems[i]['img'],
+                                  title: platformItems[i]['title'],
                                 ),
-                              if (i != platformItems.length - 1)
-                                Expanded(
-                                  child: HoverableIcon(
-                                    imgPath: platformItems[i]['img'],
-                                    title: platformItems[i]['title'],
-                                  ),
+                              ),
+                              Expanded(
+                                child: HoverableIcon(
+                                  imgPath: platformItems[i + 1]['img'],
+                                  title: platformItems[i + 1]['title'],
                                 ),
-                              if (i < platformItems.length - 1)
-                                Expanded(
-                                  child: HoverableIcon(
-                                    imgPath: platformItems[i + 1]['img'],
-                                    title: platformItems[i + 1]['title'],
-                                  ),
-                                ),
+                              ),
                             ],
                           ),
                         ),
@@ -345,40 +315,42 @@ class HoverableIconState extends State<HoverableIcon> {
 
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      cursor: SystemMouseCursors.click,
-      onEnter: (_) => setState(() => _isHovered = true),
-      onExit: (_) => setState(() => _isHovered = false),
-      child: AnimatedScale(
-        scale: _isHovered ? 1.1 : 1.0,
-        duration: const Duration(milliseconds: 30),
-        child: Column(
-          children: [
-            widget.imgPath.endsWith('.svg')
-                ? SvgPicture.asset(
-                    widget.imgPath,
-                    height: skillsIconSize,
-                    width: skillsIconSize,
-                  )
-                : Image.asset(
-                    widget.imgPath,
-                    height: skillsIconSize,
-                    width: skillsIconSize,
+    return widget.imgPath.isNotEmpty
+        ? MouseRegion(
+            cursor: SystemMouseCursors.click,
+            onEnter: (_) => setState(() => _isHovered = true),
+            onExit: (_) => setState(() => _isHovered = false),
+            child: AnimatedScale(
+              scale: _isHovered ? 1.1 : 1.0,
+              duration: const Duration(milliseconds: 30),
+              child: Column(
+                children: [
+                  widget.imgPath.endsWith('.svg')
+                      ? SvgPicture.asset(
+                          widget.imgPath,
+                          height: skillsIconSize,
+                          width: skillsIconSize,
+                        )
+                      : Image.asset(
+                          widget.imgPath,
+                          height: skillsIconSize,
+                          width: skillsIconSize,
+                        ),
+                  const SizedBox(
+                    height: heightBetweenSkillIconAndTitle,
                   ),
-            const SizedBox(
-              height: heightBetweenSkillIconAndTitle,
-            ),
-            Text(
-              widget.title,
-              style: const TextStyle(
-                fontSize: skillsTitleTextSize,
-                fontWeight: lightFontWeight,
-                color: kLight,
+                  Text(
+                    widget.title,
+                    style: const TextStyle(
+                      fontSize: skillsTitleTextSize,
+                      fontWeight: lightFontWeight,
+                      color: kLight,
+                    ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
-      ),
-    );
+          )
+        : const SizedBox.shrink();
   }
 }
