@@ -64,7 +64,7 @@ class _ProjectContainerState extends State<ProjectContainer> {
   Widget build(BuildContext context) {
     return Container(
       clipBehavior: Clip.antiAlias,
-      height: 400,
+      height: 410,
       width: 260,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
@@ -79,7 +79,7 @@ class _ProjectContainerState extends State<ProjectContainer> {
           Image.asset(
             widget.project.image,
             width: 260,
-            height: 200,
+            height: 210,
             fit: BoxFit.cover,
           ),
           // title

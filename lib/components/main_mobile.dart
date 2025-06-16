@@ -295,7 +295,7 @@ class MainMobileState extends State<MainMobile> with SingleTickerProviderStateMi
                                 ),
                                 onPressed: () {
                                   launchUrl(
-                                      'https://drive.google.com/file/d/1ydoqH6JM8-uAxLio4UM-rKQqo_xBQkgF/view?usp=sharing');
+                                      'https://drive.google.com/file/d/1NKHLut2M9HOLOSKER2-eZP6_rOZv3wfT/view?usp=sharing');
                                 },
                                 child: const Row(
                                   mainAxisAlignment: MainAxisAlignment.center,
