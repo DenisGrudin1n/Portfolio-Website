@@ -183,7 +183,7 @@ class MainDesktopState extends State<MainDesktop> with SingleTickerProviderState
                             ),
                             onPressed: () {
                               launchUrl(
-                                  'https://drive.google.com/file/d/1NKHLut2M9HOLOSKER2-eZP6_rOZv3wfT/view?usp=sharing');
+                                  'https://drive.google.com/file/d/13mabNEjd8iBM1K6yajDHtIZbiVwooQPC/view?usp=drive_link');
                             },
                             child: const Row(
                               mainAxisAlignment: MainAxisAlignment.center,

@@ -156,7 +156,7 @@ class AboutDesktopState extends State<AboutDesktop> with SingleTickerProviderSta
                             child: const MouseRegion(
                               cursor: SystemMouseCursors.text,
                               child: Text(
-                                '''Recent university graduate with background in algorithms, data structures and object-oriented programming. Additionally, specialized courses in mobile development with a focus on Flutter & Figma.''',
+                                '''My name is Denis Grudinin, I am a software developer from Ukraine who is passionate about Flutter development. I have 1.5 years of commercial experience, including a couple of published apps on Google Play and App Store.''',
                                 style: TextStyle(
                                   color: kLightSecondary,
                                   fontWeight: mediumFontWeight,
@@ -190,7 +190,7 @@ class AboutDesktopState extends State<AboutDesktop> with SingleTickerProviderSta
                               child: const MouseRegion(
                                 cursor: SystemMouseCursors.text,
                                 child: Text(
-                                  '''Excellent focus, communication, and ability to learn rapidly. Excels working in a team environment. Strong critical analysis and problem solving.''',
+                                  '''Strong foundation in algorithms, data structures, and clean architecture, with hands-on expertise in Firebase, REST APIs, and state management using BLoC. Detail-oriented, quick to learn, and experienced in collaborating closely with designers and team leads to deliver pixel-perfect, production-ready apps.''',
                                   style: TextStyle(
                                     color: kLightSecondary,
                                     fontWeight: mediumFontWeight,
